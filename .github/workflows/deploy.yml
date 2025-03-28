@@ -1,23 +1,25 @@
-name: Deploy GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main  # Ana branch'e push yapıldığında çalışır
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Depoyu Klonla
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Web Sitesi Derle
-        run: |
-          echo "Statik site içerikleri hazırlanıyor."
-          # Gerekirse Jekyll/Hugo/React vb. derleme adımları eklenebilir
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./web  # Yayınlanacak klasör 
+          branch: gh-pages  # Deploy edilecek branch
+          folder: web       # Deploy edilecek klasör
+          clean: true       # Önceki deployları temizle 
