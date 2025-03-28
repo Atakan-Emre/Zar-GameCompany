@@ -1,0 +1,35 @@
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="footerDots" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="1" fill="white" opacity="0.2" />
+    </pattern>
+    <linearGradient id="footerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4d51d8" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#25c5e3" stop-opacity="0.05" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Stilize dünya haritası -->
+  <path d="M0,100 C50,90 100,110 150,100 S250,80 300,90 S400,110 450,100 S550,80 600,90" 
+        stroke="white" stroke-width="1" fill="none" opacity="0.2" />
+  <path d="M0,130 C50,120 100,140 150,130 S250,110 300,120 S400,140 450,130 S550,110 600,120" 
+        stroke="white" stroke-width="1" fill="none" opacity="0.15" />
+  <path d="M0,160 C50,150 100,170 150,160 S250,140 300,150 S400,170 450,160 S550,140 600,150" 
+        stroke="white" stroke-width="1" fill="none" opacity="0.1" />
+  
+  <!-- AR simgeleri -->
+  <g opacity="0.2">
+    <!-- AR gözlüğü silueti -->
+    <path d="M100,50 L130,30 L160,50 L130,70 Z" fill="none" stroke="white" stroke-width="1" />
+    <path d="M100,50 L100,100 L130,120 L130,70 Z" fill="none" stroke="white" stroke-width="1" />
+    <path d="M130,70 L130,120 L160,100 L160,50 Z" fill="none" stroke="white" stroke-width="1" />
+    
+    <!-- Mobil cihaz -->
+    <rect x="400" y="40" width="40" height="70" rx="5" fill="none" stroke="white" stroke-width="1" />
+    <rect x="405" y="50" width="30" height="40" rx="2" fill="none" stroke="white" stroke-width="1" />
+    <circle cx="420" cy="100" r="5" fill="none" stroke="white" stroke-width="1" />
+  </g>
+  
+  <rect width="100%" height="100%" fill="url(#footerDots)" />
+  <rect width="100%" height="100%" fill="url(#footerGradient)" />
+</svg> 

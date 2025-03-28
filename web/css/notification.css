@@ -1,0 +1,112 @@
+/* Bildirim Stilleri */
+.notification {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  max-width: 350px;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.notification.info {
+  border-left: 4px solid var(--primary-color);
+}
+
+.notification.success {
+  border-left: 4px solid var(--success-color);
+}
+
+.notification.warning {
+  border-left: 4px solid var(--accent-color);
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.notification-content i {
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.notification.info i {
+  color: var(--primary-color);
+}
+
+.notification.success i {
+  color: var(--success-color);
+}
+
+.notification.warning i {
+  color: var(--accent-color);
+}
+
+.notification-content p {
+  margin: 0;
+  flex: 1;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.notification-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 12px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.notification-close:hover {
+  opacity: 1;
+}
+
+/* Tooltip Stilleri */
+.tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 12px;
+  max-width: 200px;
+  text-align: center;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.tooltip:after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0, 0, 0, 0.8);
+}
+
+.tooltip.show {
+  opacity: 1;
+  transform: translateY(0);
+} 
