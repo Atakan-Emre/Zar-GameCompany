@@ -1,18 +1,38 @@
 // Web sayfası JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    // Sayfa yüklendiğinde animasyonları başlat
-    animateElements();
+    // Hamburger menü işlevselliği
+    const menuToggle = document.getElementById('mobile-menu');
+    const nav = document.querySelector('nav');
     
-    // Smooth Scroll için
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            nav.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+    }
+    
+    // Mobil menüdeki linklere tıklandığında menüyü kapat
+    const navLinks = document.querySelectorAll('.nav-menu li a');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            menuToggle.classList.remove('active');
+            nav.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+    
+    // Sayfa kaydırma animasyonu
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
             
             const targetId = this.getAttribute('href');
-            if(targetId === '#') return;
+            if (targetId === '#') return;
             
             const targetElement = document.querySelector(targetId);
-            if(targetElement) {
+            if (targetElement) {
                 window.scrollTo({
                     top: targetElement.offsetTop - 70,
                     behavior: 'smooth'
@@ -20,6 +40,27 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
+    // Sayfa yüklendiğinde başlangıç animasyonları
+    animateOnScroll();
+    
+    // Scroll olayı ekle
+    window.addEventListener('scroll', function() {
+        animateOnScroll();
+    });
+    
+    function animateOnScroll() {
+        const elements = document.querySelectorAll('.feature, .team-member, .doc-card');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementPosition < windowHeight - 100) {
+                element.classList.add('animate');
+            }
+        });
+    }
 
     // Header scroll efekti
     const header = document.querySelector('header');
