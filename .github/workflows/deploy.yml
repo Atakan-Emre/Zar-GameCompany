@@ -12,14 +12,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages  # Deploy edilecek branch
-          folder: web       # Deploy edilecek klasör
+          folder: .         # Root klasörü (tüm proje) deploy et
           clean: true       # Önceki deployları temizle 
