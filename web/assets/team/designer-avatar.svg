@@ -1,0 +1,82 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradientBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#25c5e3" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#ff6b6b" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="designerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6b6b"/>
+      <stop offset="100%" stop-color="#ffae58"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Arka plan -->
+  <circle cx="100" cy="100" r="95" fill="url(#gradientBg)"/>
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#ff6b6b" stroke-width="2" stroke-dasharray="2,2"/>
+  
+  <!-- Kafa -->
+  <circle cx="100" cy="75" r="40" fill="#f5d6ba"/>
+  
+  <!-- Saç -->
+  <path d="M60,75 Q65,30 100,40 Q135,30 140,75 Q140,90 135,95 L65,95 Q60,90 60,75 Z" fill="#724133"/>
+  <path d="M70,95 L70,75 Q85,65 100,75 Q115,65 130,75 L130,95 Z" fill="#865040"/>
+  
+  <!-- Gözler -->
+  <ellipse cx="85" cy="75" rx="5" ry="6" fill="white"/>
+  <ellipse cx="115" cy="75" rx="5" ry="6" fill="white"/>
+  <circle cx="85" cy="75" r="2.5" fill="#343a40"/>
+  <circle cx="115" cy="75" r="2.5" fill="#343a40"/>
+  
+  <!-- Kirpikler -->
+  <path d="M77,70 L80,68 M80,70 L83,68 M87,70 L90,68" stroke="#343a40" stroke-width="1"/>
+  <path d="M107,70 L110,68 M110,70 L113,68 M117,70 L120,68" stroke="#343a40" stroke-width="1"/>
+  
+  <!-- Kaşlar -->
+  <path d="M80,65 Q85,62 90,65" fill="none" stroke="#724133" stroke-width="1.5"/>
+  <path d="M110,65 Q115,62 120,65" fill="none" stroke="#724133" stroke-width="1.5"/>
+  
+  <!-- Burun -->
+  <path d="M100,78 C98,85 98,90 100,92" fill="none" stroke="#b28b67" stroke-width="1.5"/>
+  
+  <!-- Ağız -->
+  <path d="M90,100 Q100,105 110,100" fill="none" stroke="#ff6b6b" stroke-width="2"/>
+  
+  <!-- Vücut -->
+  <path d="M70,120 L75,180 L125,180 L130,120 Q115,130 100,125 Q85,130 70,120 Z" fill="url(#designerGradient)"/>
+  
+  <!-- Yaka -->
+  <path d="M85,120 Q100,130 115,120" fill="none" stroke="white" stroke-width="2"/>
+  
+  <!-- Kollar -->
+  <rect x="55" y="125" width="15" height="40" rx="5" fill="url(#designerGradient)"/>
+  <rect x="130" y="125" width="15" height="40" rx="5" fill="url(#designerGradient)"/>
+  
+  <!-- Eller -->
+  <circle cx="62" cy="170" r="8" fill="#f5d6ba"/>
+  <circle cx="138" cy="170" r="8" fill="#f5d6ba"/>
+  
+  <!-- Tablet ve Kalem -->
+  <rect x="65" y="140" width="70" height="50" rx="5" fill="#343a40"/>
+  <rect x="70" y="145" width="60" height="40" rx="2" fill="#f8f9fa"/>
+  <line x1="80" y1="155" x2="120" y2="155" stroke="#ff6b6b" stroke-width="2" stroke-linecap="round"/>
+  <line x1="80" y1="165" x2="110" y2="165" stroke="#4d51d8" stroke-width="2" stroke-linecap="round"/>
+  <line x1="80" y1="175" x2="100" y2="175" stroke="#25c5e3" stroke-width="2" stroke-linecap="round"/>
+  <rect x="125" y="155" width="10" height="20" rx="2" fill="#343a40"/>
+  
+  <!-- Tasarım Sembolü -->
+  <g transform="translate(155, 50) scale(0.6)">
+    <circle cx="10" cy="10" r="10" fill="#ff6b6b"/>
+    <circle cx="20" cy="20" r="10" fill="#4d51d8" opacity="0.8"/>
+    <circle cx="10" cy="20" r="10" fill="#25c5e3" opacity="0.8"/>
+  </g>
+  
+  <!-- Tasarım Elementleri -->
+  <g opacity="0.7">
+    <rect x="40" y="50" width="10" height="10" rx="2" fill="#ff6b6b"/>
+    <circle cx="35" cy="70" r="5" fill="#4d51d8"/>
+    <polygon points="50,90 55,80 60,90" fill="#25c5e3"/>
+    <rect x="155" y="90" width="10" height="10" transform="rotate(45,160,95)" fill="#ff6b6b"/>
+    <circle cx="170" cy="70" r="5" fill="#25c5e3"/>
+    <polygon points="150,110 155,100 160,110" fill="#4d51d8"/>
+  </g>
+</svg> 
