@@ -5,16 +5,22 @@ on:
     branches:
       - main  # Ana branch'e push yapıldığında çalışır
 
+permissions:
+  contents: write  # Repo içeriğini değiştirme izni
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages  # Deploy edilecek branch
           folder: .         # Root klasörü (tüm proje) deploy et
-          clean: true       # Önceki deployları temizle 
+          clean: true       # Önceki deployları temizle
+          token: ${{ secrets.GITHUB_TOKEN }}  # GitHub tarafından otomatik sağlanan token 
