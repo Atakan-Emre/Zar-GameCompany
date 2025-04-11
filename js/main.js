@@ -41,6 +41,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Planlama dokümanları butonuna tıklama olayı
+    const planningDocsBtn = document.getElementById('planning-docs-btn');
+    if (planningDocsBtn) {
+        planningDocsBtn.addEventListener('click', function() {
+            showPlanningDocs();
+        });
+    }
+    
     // Sayfa yüklendiğinde başlangıç animasyonları
     animateOnScroll();
     
@@ -348,4 +356,149 @@ function printDocument(docId) {
     `);
     
     printWindow.document.close();
+}
+
+// Planlama dokümanlarını gösteren fonksiyon
+function showPlanningDocs() {
+    const planningDocs = [
+        { title: "Backlog ve Sprint Planı", path: "planning/backlog.md" },
+        { title: "Kullanıcı Hikayeleri", path: "planning/user-story-örnekleri.md" }
+    ];
+    
+    // Modal öğesini getir
+    const modalOverlay = document.querySelector('.modal-overlay');
+    const modalHeader = document.querySelector('.modal-header h2');
+    const modalContent = document.querySelector('.modal-content');
+    
+    if (!modalOverlay || !modalHeader || !modalContent) {
+        console.error("Modal elementleri bulunamadı");
+        return;
+    }
+    
+    // Modal başlığını güncelle
+    modalHeader.textContent = "Planlama Dokümanları";
+    
+    // Doküman listesini oluştur
+    let planningDocsHTML = `
+        <div class="document-category-header" style="color: #5E35B1">
+            <i class="fas fa-tasks"></i> 
+            <h3>Proje Planlama Dokümanları</h3>
+        </div>
+        <div class="documents-list">
+    `;
+    
+    planningDocs.forEach(doc => {
+        // Dosya adını al (sadece gösterim için)
+        const fileName = doc.path.split('/').pop();
+        
+        planningDocsHTML += `
+            <div class="document-item" data-path="${doc.path}">
+                <div class="doc-icon" style="background-color: #5E35B1">
+                    <i class="fas fa-file-alt" style="color: white;"></i>
+                </div>
+                <div class="doc-info">
+                    <h4>${doc.title}</h4>
+                    <span class="file-path">${fileName}</span>
+                </div>
+                <div class="doc-action">
+                    <button class="btn-view-doc" aria-label="Görüntüle" title="Dökümanı Görüntüle" style="background-color: #5E35B1">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+    
+    planningDocsHTML += '</div>';
+    
+    // Modal içeriğini güncelle
+    modalContent.innerHTML = planningDocsHTML;
+    
+    // Doküman görüntüleme butonlarına tıklama işlevleri ekle
+    document.querySelectorAll('.document-item').forEach(item => {
+        const docPath = item.getAttribute('data-path');
+        const docTitle = item.querySelector('h4').textContent;
+        
+        // Tüm kart alanı tıklanabilir hale getiriliyor
+        item.addEventListener('click', (e) => {
+            // Eğer buton tıklandıysa zaten kart tıklama olayı çalışacak
+            // Çift tetiklemeyi önlemek için butonun kendisini kontrol ediyoruz
+            if (!e.target.closest('.btn-view-doc')) {
+                loadMarkdownFile(docPath, docTitle);
+            }
+        });
+        
+        // Buton için ayrı olay dinleyici
+        const viewButton = item.querySelector('.btn-view-doc');
+        viewButton.addEventListener('click', (e) => {
+            e.stopPropagation(); // Event'in üst elemanlara yayılımını durdur
+            loadMarkdownFile(docPath, docTitle);
+        });
+    });
+    
+    // Modalı göster
+    modalOverlay.classList.add('active');
+}
+
+/**
+ * Markdown dosyasını yükleyen ve görüntüleyen fonksiyon
+ */
+function loadMarkdownFile(filePath, title) {
+    const modalContent = document.querySelector('.modal-content');
+    
+    if (!modalContent) {
+        console.error("Modal içerik elementi bulunamadı");
+        return;
+    }
+    
+    // Yükleniyor mesajı göster
+    modalContent.innerHTML = `
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <div class="loading-text">Doküman yükleniyor...</div>
+        </div>
+    `;
+    
+    // Modal başlığını güncelle
+    const modalHeader = document.querySelector('.modal-header h2');
+    if (modalHeader) {
+        modalHeader.textContent = title;
+    }
+    
+    // Dosya yoluna göre local dosya kullan
+    fetch(filePath)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(markdown => {
+            // Marked.js ile markdown'ı HTML'e dönüştür
+            const html = marked.parse(markdown);
+            
+            // Modal içeriğini güncelle
+            modalContent.innerHTML = `<div class="markdown-content">${html}</div>`;
+            
+            // İçeriğin tamamını görüntülemek için modalı kaydır
+            modalContent.scrollTop = 0;
+            
+            // Kod blokları için syntax highlighting
+            if (window.hljs) {
+                document.querySelectorAll('.markdown-content pre code').forEach((block) => {
+                    hljs.highlightBlock(block);
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Markdown dosyası yüklenemedi:', error);
+            modalContent.innerHTML = `
+                <div class="not-found">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Doküman Bulunamadı</h3>
+                    <p>İstenen dosya yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</p>
+                    <p class="error-details">${error.message}</p>
+                </div>
+            `;
+        });
 } 
