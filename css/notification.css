@@ -1,112 +1,190 @@
 /* Bildirim Stilleri */
 .notification {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  padding: 0;
-  max-width: 350px;
-  transform: translateY(100px);
-  opacity: 0;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  z-index: 1000;
-  overflow: hidden;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    padding: 15px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    transform: translateX(120%);
+    transition: transform 0.4s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
 }
 
 .notification.show {
-  transform: translateY(0);
-  opacity: 1;
+    transform: translateX(0);
 }
 
-.notification.info {
-  border-left: 4px solid var(--primary-color);
-}
-
-.notification.success {
-  border-left: 4px solid var(--success-color);
-}
-
-.notification.warning {
-  border-left: 4px solid var(--accent-color);
+.notification-icon {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
 }
 
 .notification-content {
-  display: flex;
-  align-items: center;
-  padding: 15px 20px;
+    flex: 1;
 }
 
-.notification-content i {
-  font-size: 20px;
-  margin-right: 15px;
+.notification-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 16px;
 }
 
-.notification.info i {
-  color: var(--primary-color);
-}
-
-.notification.success i {
-  color: var(--success-color);
-}
-
-.notification.warning i {
-  color: var(--accent-color);
-}
-
-.notification-content p {
-  margin: 0;
-  flex: 1;
-  font-size: 14px;
-  color: var(--text-color);
+.notification-message {
+    font-size: 14px;
+    color: #666;
 }
 
 .notification-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  color: #999;
-  cursor: pointer;
-  font-size: 12px;
-  opacity: 0.7;
-  transition: opacity 0.2s;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 10px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
 }
 
 .notification-close:hover {
-  opacity: 1;
+    opacity: 1;
+}
+
+/* Notification types */
+.notification.info {
+    border-left: 4px solid #4a89dc;
+}
+
+.notification.info .notification-icon {
+    color: #4a89dc;
+    background: rgba(74, 137, 220, 0.1);
+}
+
+.notification.success {
+    border-left: 4px solid #2ecc71;
+}
+
+.notification.success .notification-icon {
+    color: #2ecc71;
+    background: rgba(46, 204, 113, 0.1);
+}
+
+.notification.warning {
+    border-left: 4px solid #f1c40f;
+}
+
+.notification.warning .notification-icon {
+    color: #f1c40f;
+    background: rgba(241, 196, 15, 0.1);
+}
+
+.notification.error {
+    border-left: 4px solid #e74c3c;
+}
+
+.notification.error .notification-icon {
+    color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
 }
 
 /* Tooltip Stilleri */
 .tooltip {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 8px 12px;
-  border-radius: 5px;
-  font-size: 12px;
-  max-width: 200px;
-  text-align: center;
-  z-index: 1000;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
 }
 
-.tooltip:after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid rgba(0, 0, 0, 0.8);
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 13px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.tooltip.show {
-  opacity: 1;
-  transform: translateY(0);
-} 
+.tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(135deg, #4a89dc, #5d9cec);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* Badge Stilleri */
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.badge-primary {
+    background-color: rgba(74, 137, 220, 0.15);
+    color: #4a89dc;
+}
+
+.badge-success {
+    background-color: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+}
+
+.badge-warning {
+    background-color: rgba(241, 196, 15, 0.15);
+    color: #f1c40f;
+}
+
+.badge-danger {
+    background-color: rgba(231, 76, 60, 0.15);
+    color: #e74c3c;
+}

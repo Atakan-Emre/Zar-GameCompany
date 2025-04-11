@@ -3,16 +3,28 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Döküman yükleyici başlatılıyor...');
+    
     // Marked.js kütüphanesini dinamik olarak yükle
     loadScript('https://cdn.jsdelivr.net/npm/marked/marked.min.js', function() {
+        console.log('Marked.js yüklendi');
         // Highlight.js kütüphanesini yükle
         loadScript('https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js', function() {
+            console.log('Highlight.js yüklendi');
             // Highlight.js stil dosyasını yükle
             loadCSS('https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.min.css');
             
             // Doküman listesini yükle ve görüntüle
             initializeDocViewer();
         });
+    });
+    
+    // Hata izleme
+    window.addEventListener('error', function(e) {
+        console.error('Global hata yakalandı:', e.error.message);
+        console.error('Dosya:', e.filename);
+        console.error('Satır:', e.lineno);
+        console.error('Sütun:', e.colno);
     });
 });
 
@@ -40,37 +52,50 @@ function loadCSS(url) {
  * Doküman görüntüleyici ana işlevselliği
  */
 function initializeDocViewer() {
-    // Döküman kategorileri ve linkleri
-    const docCategories = [
+    // Doküman Kategorileri ve Belgeleri
+    const documentCategories = [
         {
-            name: 'Kurumsal',
+            id: 'kurumsal',
+            title: 'Kurumsal',
             icon: 'fas fa-building',
-            description: 'Şirket profili, kurumsal kimlik ve iletişim bilgileri.',
+            description: 'Şirket bilgileri ve kurumsal dokümanlar',
             documents: [
-                { name: 'Şirket Profili', path: 'docs/kurumsal/şirket-profili.md' },
-                { name: 'Kurumsal Kimlik', path: 'docs/kurumsal/kurumsal-kimlik.md' },
-                { name: 'İletişim Bilgileri', path: 'docs/kurumsal/iletişim-bilgileri.md' }
+                { title: 'Hakkımızda', path: 'docs/kurumsal/hakkimizda.md' },
+                { title: 'Ekibimiz', path: 'docs/kurumsal/ekibimiz.md' },
+                { title: 'İletişim Bilgileri', path: 'docs/kurumsal/iletişim-bilgileri.md' }
             ]
         },
         {
-            name: 'Tasarım Dokümanları',
+            id: 'tasarim',
+            title: 'Tasarım Dokümanları',
             icon: 'fas fa-paint-brush',
-            description: 'Oyun tasarımı, AR entegrasyonu, RAAS ilkeleri ve KPI hedefleri.',
+            description: 'Oyun tasarımı ve geliştirme dokümanları',
             documents: [
-                { name: 'Oyun Tasarımı', path: 'docs/tasarım-dokümanları/oyun-tasarimi.md' },
-                { name: 'AR Entegrasyon Notları', path: 'docs/tasarım-dokümanları/ar-entegrasyon.md' },
-                { name: 'RAAS İlkeleri', path: 'docs/tasarım-dokümanları/raas-ilkeleri.md' },
-                { name: 'KPI ve SMART Hedefleri', path: 'docs/tasarım-dokümanları/kpi-smart-steam.md' }
+                { title: 'Oyun Tasarımı', path: 'docs/tasarım-dokümanları/oyun-tasarimi.md' },
+                { title: 'AR Entegrasyon Notları', path: 'docs/tasarım-dokümanları/ar-entegrasyon.md' },
+                { title: 'KPI, SMART ve STEAM Yaklaşımı', path: 'docs/tasarım-dokümanları/kpi-smart-steam.md' },
+                { title: 'RAAS Tasarım İlkeleri', path: 'docs/tasarım-dokümanları/raas-ilkeleri.md' }
             ]
         },
         {
-            name: 'Teknik Dokümanlar',
+            id: 'teknik',
+            title: 'Teknik Dokümanlar',
             icon: 'fas fa-code',
-            description: 'Mimari tasarım, altyapı ve güvenlik kontrolleri.',
+            description: 'Teknik geliştirme ve altyapı dokümanları',
             documents: [
-                { name: 'Mimari Tasarım', path: 'docs/teknik-dokümanlar/mimari-tasarim.md' },
-                { name: 'Altyapı', path: 'docs/teknik-dokümanlar/altyapı.md' },
-                { name: 'Güvenlik Kontrolü', path: 'docs/teknik-dokümanlar/güvenlik-kontrol.md' }
+                { title: 'Uygulama Mimarisi', path: 'docs/teknik-dokümanlar/mimari-tasarim.md' },
+                { title: 'Altyapı ve API', path: 'docs/teknik-dokümanlar/altyapı.md' },
+                { title: 'Güvenlik ve Kontrol', path: 'docs/teknik-dokümanlar/güvenlik-kontrol.md' }
+            ]
+        },
+        {
+            id: 'planlama',
+            title: 'Proje Planlama',
+            icon: 'fas fa-tasks',
+            description: 'Proje planlama ve izleme dokümanları',
+            documents: [
+                { title: 'Ürün ve Sprint Backlog', path: 'planning/backlog.md' },
+                { title: 'Kullanıcı Hikayeleri', path: 'planning/user-story-örnekleri.md' }
             ]
         }
     ];
@@ -79,10 +104,19 @@ function initializeDocViewer() {
     createMarkdownModal();
     
     // Dinamik döküman listesi oluşturma
-    renderDocumentList(docCategories);
+    renderDocumentList(documentCategories);
     
     // Markdown görüntüleme konfigürasyonu
     configureMarked();
+    
+    // Modal kapatma işlevini ayarla
+    setupModalClose();
+    
+    // Test için örnek doküman yüklemeyi dene
+    console.log("Örnek test dokümanı yükleniyor...");
+    setTimeout(function() {
+        loadMarkdownFile("README.md", "Proje README Dosyası");
+    }, 2000);
 }
 
 /**
@@ -183,7 +217,7 @@ function renderDocumentList(categories) {
         
         categoryCard.innerHTML = `
             <div class="doc-icon"><i class="${category.icon}"></i></div>
-            <h3>${category.name}</h3>
+            <h3>${category.title}</h3>
             <p>${category.description}</p>
             <div class="doc-list-toggle"><i class="fas fa-chevron-down"></i></div>
         `;
@@ -195,11 +229,11 @@ function renderDocumentList(categories) {
         category.documents.forEach(doc => {
             const docItem = document.createElement('li');
             docItem.className = 'doc-item';
-            docItem.innerHTML = `<i class="fas fa-file-alt"></i> ${doc.name}`;
+            docItem.innerHTML = `<i class="fas fa-file-alt"></i> ${doc.title}`;
             
             // Doküman tıklama olayı
             docItem.addEventListener('click', function() {
-                loadMarkdownFile(doc.path, doc.name);
+                loadMarkdownFile(doc.path, doc.title);
             });
             
             docList.appendChild(docItem);
@@ -230,39 +264,148 @@ function renderDocumentList(categories) {
 }
 
 /**
- * Markdown dosyasını yükle ve görüntüle
+ * Markdown dosyasını yükler ve görüntüler
+ * @param {string} path - Markdown dosyasının yolu
+ * @param {string} title - Dokümanın başlığı
  */
-function loadMarkdownFile(filePath, fileName) {
-    fetch(filePath)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Dosya yüklenemedi: ' + response.statusText);
+async function loadMarkdownFile(path, title) {
+    console.log("Doküman yükleniyor: " + path);
+    
+    // Modal başlığını ayarla
+    document.getElementById('markdownTitle').textContent = title;
+    
+    // Yükleniyor mesajını göster
+    document.getElementById('markdownContent').innerHTML = '<div class="loading">Doküman yükleniyor...</div>';
+    
+    // Modal'ı göster
+    document.getElementById('markdownModal').style.display = 'block';
+    
+    try {
+        let markdown = null;
+        let errorMsg = null;
+        
+        // Önce GitHub'dan yüklemeyi dene
+        try {
+            console.log("GitHub'dan yükleniyor...");
+            markdown = await fetchFromGitHub(path);
+            console.log("GitHub'dan yükleme başarılı");
+        } catch (githubError) {
+            console.error("GitHub'dan yükleme başarısız:", githubError);
+            errorMsg = githubError.message;
+            
+            // GitHub başarısız olursa yerel dosyadan yüklemeyi dene
+            try {
+                console.log("Yerel dosyadan yükleniyor...");
+                markdown = await fetchFromLocal(path);
+                console.log("Yerel dosyadan yükleme başarılı");
+                errorMsg = null; // Yerel yükleme başarılı olduysa hata mesajını temizle
+            } catch (localError) {
+                console.error("Yerel dosyadan yükleme de başarısız:", localError);
+                throw new Error(`Doküman yüklenemedi: ${errorMsg}\nYerel hata: ${localError.message}`);
             }
-            return response.text();
-        })
-        .then(markdown => {
-            const modal = document.getElementById('markdown-modal');
-            document.getElementById('md-modal-title').textContent = fileName;
-            
-            const mdContent = document.getElementById('md-content');
-            mdContent.innerHTML = marked(markdown);
-            mdContent.setAttribute('data-path', filePath);
-            
-            // Kod blokları için syntax highlighting uygula
-            document.querySelectorAll('#md-content pre code').forEach((block) => {
-                hljs.highlightBlock(block);
-            });
-            
-            // Modalı göster
-            modal.style.display = 'block';
-            
-            // Görüntülenen dosyayı locale kaydet
-            saveToRecentDocs(filePath, fileName);
-        })
-        .catch(error => {
-            console.error('Dosya yükleme hatası:', error);
-            alert('Dosya yüklenirken bir hata oluştu: ' + error.message);
+        }
+        
+        // Markdown içeriğini görüntüle
+        if (markdown) {
+            displayMarkdown(markdown);
+        } else {
+            throw new Error("Markdown içeriği boş");
+        }
+    } catch (error) {
+        console.error("Doküman yükleme hatası:", error);
+        document.getElementById('markdownContent').innerHTML = `
+            <div class="error-message">
+                <h3>Doküman yüklenemedi</h3>
+                <p>${error.message}</p>
+                <p>Lütfen daha sonra tekrar deneyin veya site yöneticisiyle iletişime geçin.</p>
+            </div>
+        `;
+    }
+}
+
+/**
+ * GitHub'dan markdown dosyasını yükler
+ * @param {string} path - Dosya yolu
+ * @returns {Promise<string>} - Markdown içeriği
+ */
+async function fetchFromGitHub(path) {
+    // GitHub bilgileri
+    const owner = "Atakan-Emre";
+    const repo = "Zar-GameCompany";
+    const branch = "main";
+    
+    // GitHub raw URL'ini oluştur
+    const githubRawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`;
+    console.log("GitHub Raw URL:", githubRawUrl);
+    
+    const response = await fetch(githubRawUrl);
+    console.log("GitHub Yanıt Durumu:", response.status, response.statusText);
+    
+    if (!response.ok) {
+        throw new Error(`GitHub'dan yükleme başarısız: ${response.status} ${response.statusText}`);
+    }
+    
+    const markdown = await response.text();
+    if (!markdown || markdown.trim() === '') {
+        throw new Error('Boş içerik');
+    }
+    
+    return markdown;
+}
+
+/**
+ * Yerel dosyadan markdown yükler
+ * @param {string} path - Dosya yolu
+ * @returns {Promise<string>} - Markdown içeriği
+ */
+async function fetchFromLocal(path) {
+    console.log("Yerel dosya yolu:", path);
+    
+    const response = await fetch(path);
+    console.log("Yerel Yanıt Durumu:", response.status, response.statusText);
+    
+    if (!response.ok) {
+        throw new Error(`Yerel dosyadan yükleme başarısız: ${response.status} ${response.statusText}`);
+    }
+    
+    const markdown = await response.text();
+    if (!markdown || markdown.trim() === '') {
+        throw new Error('Boş içerik');
+    }
+    
+    return markdown;
+}
+
+/**
+ * Markdown içeriğini HTML'e dönüştürüp görüntüler
+ * @param {string} markdown - Markdown içeriği
+ */
+function displayMarkdown(markdown) {
+    console.log(`Markdown içeriği yüklendi (${markdown.length} karakter)`);
+    
+    try {
+        // Markdown'ı HTML'e dönüştür
+        const html = marked.parse(markdown);
+        console.log("Markdown HTML'e dönüştürüldü");
+        
+        // İçeriği göster
+        document.getElementById('markdownContent').innerHTML = html;
+        
+        // Kod bloklarına syntax highlighting uygula
+        document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightElement(block);
         });
+        
+        console.log("Doküman başarıyla görüntülendi");
+    } catch (error) {
+        console.error("Markdown işleme hatası:", error);
+        document.getElementById('markdownContent').innerHTML = `
+            <div class="error-message">
+                <h3>İçerik işlenemedi</h3>
+                <p>${error.message}</p>
+            </div>
+        `;
+    }
 }
 
 /**
@@ -400,7 +543,15 @@ function printMarkdown(title, content) {
  * Markdown dosyasını indir
  */
 function downloadMarkdown(path, title) {
-    fetch(path)
+    // GitHub repo bilgileri
+    const owner = 'Atakan-Emre';
+    const repo = 'Zar-GameCompany';
+    const branch = 'main';
+    
+    // GitHub Raw içerik URL'si
+    const githubRawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`;
+    
+    fetch(githubRawUrl)
         .then(response => response.text())
         .then(content => {
             const element = document.createElement('a');
