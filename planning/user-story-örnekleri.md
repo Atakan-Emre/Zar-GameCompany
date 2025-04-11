@@ -109,7 +109,7 @@ Bu doküman, Dünya Kaşifi AR mobil uygulaması için kullanıcı hikayelerini 
 - İşaretçi noktaları için raycast kullanılacak
 
 #### Hikaye 6: AR Matematik Oyunu
-**Hikaye:** Bir bilim insanı olarak, AR ortamında matematik problemlerini çözmek istiyorum ki eğlenceli bir şekilde matematik becerilerimi geliştirebiliyim.
+**Hikaye:** Bir bilim insanı olarak, AR ortamında matematik problemlerini çözmek istiyorum ki eğlenceli bir şekilde matematik becerilerimi geliştirebileyim.
 
 **Kabul Kriterleri:**
 - Gökyüzünde beliren matematik problemleri olmalı
@@ -296,6 +296,20 @@ Bu doküman, Dünya Kaşifi AR mobil uygulaması için kullanıcı hikayelerini 
 - Asset bundle'lar önceden indirilebilir olacak
 - Senkronizasyon için conflict resolution stratejisi belirlenecek
 
+#### Hikaye 19: Karanlık Mod Desteği
+**Hikaye:** Bir kullanıcı olarak, uygulamayı karanlık modda kullanabilmek istiyorum ki göz yorgunluğunu azaltabileyim ve gece kullanımda daha rahat edebileyim.
+
+**Kabul Kriterleri:**
+- Uygulama genelinde karanlık mod arayüzü desteklenmeli
+- Kullanıcı ayarlarından tema seçimi yapılabilmeli (açık, koyu, sistem varsayılanı)
+- Karanlık modda tüm metinlerin okunabilirliği korunmalı
+- Tema geçişi sırasında kullanıcı deneyimi kesintisiz olmalı
+
+**Teknik Notlar:**
+- Tema yönetimi için context/tabanlı tema sağlayıcısı kullanılacak
+- UI bileşenleri temaya göre otomatik güncellenecek
+- Gece modu destekli görseller optimize edilecek
+
 ---
 
-Bu kullanıcı hikayeleri, Dünya Kaşifi AR uygulamasının geliştirme sürecinde yol gösterici olarak kullanılacaktır. Geliştirme ilerledikçe ve kullanıcı geri bildirimleri alındıkça bu hikayeler güncellenebilir ve genişletilebilir. 
+Bu kullanıcı hikayeleri, Dünya Kaşifi AR uygulamasının geliştirme sürecinde yol gösterici olarak kullanılacaktır. Geliştirme ilerledikçe ve kullanıcı geri bildirimleri alındıkça bu hikayeler güncellenebilir ve genişletilebilir.
