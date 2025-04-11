@@ -1144,4 +1144,62 @@ footer {
 .doc-card.animate {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Doküman yükleniyor animasyonu */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.loading:after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(74, 137, 220, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Hata mesajı stilleri */
+.error-message {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-left: 4px solid #e74c3c;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.error-message h3 {
+    color: #e74c3c;
+    margin-bottom: 10px;
+}
+
+/* Doküman görüntüleyici animasyonları */
+.md-modal {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.md-modal-content {
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 } 
