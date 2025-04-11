@@ -4,111 +4,210 @@
 .md-modal {
     display: none;
     position: fixed;
-    z-index: 1000;
-    top: 0;
+    z-index: 1002;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
 }
 
 .md-modal-content {
-    position: relative;
     background-color: #fff;
-    margin: 5vh auto;
-    width: 80%;
-    max-width: 900px;
-    border-radius: 15px;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
-    animation: modalFadeIn 0.3s ease;
-    max-height: 90vh;
+    margin: 5% auto;
+    width: 85%;
+    max-width: 1200px;
+    height: 85%;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
+    position: relative;
+    animation: mdModalFadeIn 0.4s ease-out;
 }
 
-@keyframes modalFadeIn {
-    from { opacity: 0; transform: translateY(-30px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes mdModalFadeIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 .md-modal-header {
-    padding: 1.5rem;
-    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    border-radius: 12px 12px 0 0;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background: var(--gradient-primary);
-    color: white;
-    border-radius: 15px 15px 0 0;
+    justify-content: space-between;
 }
 
 .md-modal-header h2 {
     margin: 0;
-    font-size: 1.6rem;
+    font-size: 22px;
     font-weight: 600;
-}
-
-.md-close {
-    font-size: 2rem;
-    font-weight: 700;
-    color: white;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.md-close:hover {
-    color: rgba(255, 255, 255, 0.7);
-    transform: scale(1.1);
-}
-
-.md-modal-body {
-    padding: 2rem;
-    overflow-y: auto;
-    max-height: calc(90vh - 140px);
-}
-
-.md-modal-footer {
-    padding: 1rem 2rem;
-    border-top: 1px solid #e0e0e0;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.md-modal-footer button {
-    padding: 0.7rem 1.2rem;
-    margin-left: 0.8rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-}
-
-.md-modal-footer button i {
-    margin-right: 0.5rem;
-}
-
-.md-print-btn {
-    background-color: #f5f5f5;
     color: #333;
 }
 
-.md-print-btn:hover {
-    background-color: #e0e0e0;
+.md-close {
+    color: #666;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
 }
 
-.md-download-btn {
-    background: var(--gradient-primary);
-    color: white;
+.md-close:hover {
+    color: #333;
+}
+
+.md-modal-body {
+    padding: 25px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+#md-content {
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+#md-content h1 {
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+    color: #222;
+}
+
+#md-content h2 {
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+}
+
+#md-content h3 {
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+#md-content p {
+    margin-bottom: 16px;
+}
+
+#md-content ul, #md-content ol {
+    margin-bottom: 16px;
+    padding-left: 25px;
+}
+
+#md-content li {
+    margin-bottom: 8px;
+}
+
+#md-content pre {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 16px 0;
+}
+
+#md-content code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 14px;
+    padding: 2px 5px;
+    background-color: #f1f1f1;
+    border-radius: 3px;
+}
+
+#md-content pre code {
+    padding: 0;
+    background-color: transparent;
+}
+
+#md-content blockquote {
+    border-left: 4px solid #007bff;
+    padding: 10px 15px;
+    margin: 16px 0;
+    background-color: #f8f9fa;
+}
+
+#md-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+}
+
+#md-content table th, #md-content table td {
+    padding: 8px 12px;
+    border: 1px solid #dee2e6;
+}
+
+#md-content table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+#md-content img {
+    max-width: 100%;
+    margin: 16px auto;
+    display: block;
+    border-radius: 6px;
+}
+
+#md-content a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#md-content a:hover {
+    text-decoration: underline;
+}
+
+.md-modal-footer {
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 0 0 12px 12px;
+}
+
+.md-modal-footer button {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #495057;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.md-modal-footer button i {
+    margin-right: 5px;
+}
+
+.md-modal-footer button:hover {
+    background-color: #e9ecef;
+}
+
+.md-print-btn:hover {
+    color: #0056b3;
 }
 
 .md-download-btn:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    color: #28a745;
 }
 
 /* Doküman Listesi Stilleri */
@@ -177,171 +276,279 @@
     transform: translateX(5px);
 }
 
-/* Doküman İçeriği Stilleri */
-#md-content {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.7;
+/* Doküman Kartları Stilleri */
+.doc-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.doc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.doc-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(0, 123, 255, 0.02) 100%);
+    border-radius: 0 0 0 100px;
+    z-index: 0;
+}
+
+.doc-card .doc-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.doc-card .doc-icon i {
+    font-size: 24px;
+    color: white;
+}
+
+.doc-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
     color: #333;
+    position: relative;
+    z-index: 1;
 }
 
-#md-content h1, 
-#md-content h2, 
-#md-content h3, 
-#md-content h4, 
-#md-content h5, 
-#md-content h6 {
-    margin-top: 1.5em;
-    margin-bottom: 0.8em;
-    color: var(--primary-color);
+.doc-card p {
+    color: #666;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
 }
 
-#md-content h1 {
-    font-size: 2.2rem;
-    padding-bottom: 0.3em;
-    border-bottom: 1px solid #eaecef;
-}
-
-#md-content h2 {
-    font-size: 1.8rem;
-    padding-bottom: 0.3em;
-    border-bottom: 1px solid #eaecef;
-}
-
-#md-content h3 {
-    font-size: 1.5rem;
-}
-
-#md-content p {
-    margin-bottom: 1rem;
-}
-
-#md-content ul, 
-#md-content ol {
-    padding-left: 2rem;
-    margin-bottom: 1rem;
-}
-
-#md-content li {
-    margin-bottom: 0.5rem;
-}
-
-#md-content blockquote {
-    padding: 0.5rem 1rem;
-    margin-left: 0;
-    margin-right: 0;
-    border-left: 4px solid var(--primary-color);
-    background: rgba(123, 47, 249, 0.05);
-}
-
-#md-content pre {
-    background: #f6f8fa;
-    border-radius: 8px;
-    padding: 1rem;
-    overflow: auto;
-    margin-bottom: 1rem;
-}
-
-#md-content code {
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
-    background: #f6f8fa;
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-}
-
-#md-content pre code {
-    background: transparent;
-    padding: 0;
-}
-
-#md-content img {
-    max-width: 100%;
-    border-radius: 8px;
-    margin: 1rem 0;
-}
-
-#md-content table {
-    border-collapse: collapse;
+.doc-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
 }
 
-#md-content table, 
-#md-content th, 
-#md-content td {
-    border: 1px solid #e0e0e0;
+.doc-btn:hover {
+    background-color: #0056b3;
 }
 
-#md-content th, 
-#md-content td {
-    padding: 0.8rem;
-    text-align: left;
+.doc-btn i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
 }
 
-#md-content th {
-    background-color: rgba(123, 47, 249, 0.05);
+.doc-btn:hover i {
+    transform: translateX(3px);
 }
 
-#md-content tr:nth-child(even) {
-    background-color: #f9f9f9;
+/* Doküman Listesi Modal Stilleri */
+.doc-list-modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-/* Son Güncellenen Dokümanlar */
-.recent-docs li {
+.doc-list-modal.show {
+    opacity: 1;
+}
+
+.doc-list-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 0;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.doc-list-header {
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.doc-list-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.doc-list-header h3 i {
+    margin-right: 10px;
+}
+
+.doc-list-close {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.doc-list-close:hover {
+    transform: scale(1.1);
+}
+
+.doc-list-body {
+    padding: 20px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.document-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.document-item {
+    padding: 12px 15px;
+    background-color: #f8f9fa;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.document-item:hover {
+    background-color: #e9ecef;
+    transform: translateX(5px);
+}
+
+.document-item i {
+    margin-right: 10px;
+    color: #007bff;
+    font-size: 16px;
+}
+
+/* Loading ve Hata Mesajları */
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    font-size: 16px;
+    color: #666;
     position: relative;
 }
 
-.recent-docs .update-date {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
+.loading:before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
 
-.no-docs {
-    text-align: center;
-    padding: 1rem;
-    color: #777;
-    font-style: italic;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-/* Mobil Duyarlı Tasarım */
+.error-message {
+    background-color: #fff5f5;
+    border-left: 4px solid #dc3545;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.error-message h3 {
+    color: #dc3545;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.error-message p {
+    margin-bottom: 8px;
+}
+
+/* Medya Sorguları */
 @media (max-width: 768px) {
+    .doc-list-content {
+        width: 95%;
+        margin: 15% auto;
+    }
+    
     .md-modal-content {
         width: 95%;
-        margin: 3vh auto;
+        height: 90%;
+        margin: 5% auto;
     }
     
     .md-modal-header h2 {
-        font-size: 1.3rem;
-    }
-    
-    .md-modal-body {
-        padding: 1.2rem;
-    }
-    
-    .md-modal-footer button {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.9rem;
+        font-size: 18px;
     }
     
     #md-content h1 {
-        font-size: 1.7rem;
+        font-size: 24px;
     }
     
     #md-content h2 {
-        font-size: 1.5rem;
+        font-size: 20px;
     }
     
     #md-content h3 {
-        font-size: 1.3rem;
-    }
-    
-    .doc-item {
-        padding: 0.7rem;
-    }
-    
-    .recent-docs .update-date {
-        font-size: 0.75rem;
+        font-size: 18px;
     }
 } 

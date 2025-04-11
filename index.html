@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/notification.css">
     <link rel="stylesheet" href="css/markdown-viewer.css">
+    <link rel="stylesheet" href="css/doc-viewer.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta name="description" content="Dünya Kaşifi, Zar Game Company tarafından geliştirilen artırılmış gerçeklik temelli eğitici mobil oyun">
@@ -198,21 +199,13 @@
         </div>
     </section>
 
-    <section id="docs">
+    <section id="docs" class="section">
         <div class="container">
             <h2 class="section-title">Proje Dokümanları</h2>
+            <p class="section-description">Dünya Kaşifi AR Mobil Oyun projesine ait teknik, tasarım ve planlama dokümanları.</p>
             
             <div class="docs-list">
                 <!-- Doküman kartları dinamik olarak JavaScript ile doldurulacak -->
-            </div>
-            
-            <div class="interactive-docs">
-                <div class="doc-preview">
-                    <h3>Son Görüntülenen Dokümanlar</h3>
-                    <ul class="recent-docs">
-                        <!-- Son görüntülenen dokümanlar dinamik olarak JavaScript ile doldurulacak -->
-                    </ul>
-                </div>
             </div>
         </div>
     </section>
@@ -271,6 +264,25 @@
         </div>
     </footer>
 
+    <!-- Modal yapısı -->
+    <div class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Dokümanlar</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-content">
+                <!-- Modal içeriği JavaScript tarafından doldurulacak -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Doküman görüntüleyici için gerekli kütüphaneler -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github.min.css">
+    
+    <!-- Ana JavaScript dosyaları -->
     <script src="js/main.js"></script>
     <script src="js/doc-viewer.js"></script>
 </body>
