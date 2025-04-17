@@ -1,5 +1,7 @@
 # Zar Game Company - İletişim Bilgileri
 
+![Zar Game Company Logo](logo.png)
+
 ## Genel İletişim
 
 **E-posta**: info@zargamecompany.com  

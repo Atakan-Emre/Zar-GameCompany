@@ -2134,3 +2134,50 @@ footer:before {
     from { transform: translateY(30px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 } 
+
+.footer-logo-img {
+    max-width: 120px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    filter: drop-shadow(0 5px 15px rgba(255, 255, 255, 0.2));
+    transition: all 0.3s ease;
+}
+
+.footer-logo-img:hover {
+    transform: scale(1.05) rotate(3deg);
+    filter: drop-shadow(0 8px 20px rgba(255, 255, 255, 0.3));
+}
+
+.logo-active {
+    animation: pulse-logo 0.8s ease-in-out infinite alternate;
+}
+
+.logo-animate {
+    animation: intro-logo 1.5s ease-out;
+}
+
+@keyframes pulse-logo {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 5px 15px rgba(255, 255, 255, 0.2));
+    }
+    100% {
+        transform: scale(1.08) rotate(5deg);
+        filter: drop-shadow(0 10px 25px rgba(255, 255, 255, 0.4));
+    }
+}
+
+@keyframes intro-logo {
+    0% {
+        transform: scale(0.5) rotate(-10deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(10deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}

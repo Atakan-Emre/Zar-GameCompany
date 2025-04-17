@@ -678,4 +678,207 @@
     100% {
         transform: translateY(0) rotate(0deg);
     }
+}
+
+/* Logo Container Stilleri */
+.category-logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+.category-logo {
+    max-width: 180px;
+    max-height: 180px;
+    object-fit: contain;
+}
+
+.markdown-logo-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 30px auto;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    max-width: 220px;
+}
+
+.markdown-logo {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.responsive-image:hover {
+    transform: scale(1.02);
+}
+
+/* Markdown içi logo stilleri */
+.markdown-content img[src*="logo.png"] {
+    display: block;
+    margin: 20px auto;
+    max-width: 220px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.markdown-content img[src*="logo.png"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(123, 47, 249, 0.3);
+}
+
+.markdown-logo.animate-logo {
+    animation: fade-zoom-in 1s ease forwards;
+}
+
+.doc-logo-image {
+    animation: subtle-float 6s ease-in-out infinite;
+}
+
+.logo-rotate {
+    animation: full-rotate 1s ease-in-out;
+}
+
+@keyframes fade-zoom-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes subtle-float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes full-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Görsel Görüntüleyici */
+.image-viewer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+
+.image-viewer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.image-viewer-container {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.image-viewer-overlay.active .image-viewer-container {
+    transform: scale(1);
+}
+
+.image-viewer-img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.image-viewer-caption {
+    margin-top: 15px;
+    color: white;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.image-viewer-close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 36px;
+    height: 36px;
+    background-color: #9C27B0;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.image-viewer-close:hover {
+    background-color: #7B1FA2;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .image-viewer-container {
+        padding: 15px;
+    }
+    
+    .image-viewer-close {
+        top: -10px;
+        right: -10px;
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+    
+    .image-viewer-caption {
+        font-size: 0.9rem;
+    }
 } 
