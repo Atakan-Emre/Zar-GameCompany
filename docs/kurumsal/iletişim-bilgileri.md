@@ -1,6 +1,6 @@
 # Zar Game Company - İletişim Bilgileri
 
-![Zar Game Company Logo](logo.png)
+![Zar Game Company Logo](./logo.png)
 
 ## Genel İletişim
 
