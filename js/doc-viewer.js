@@ -372,6 +372,9 @@ function loadMarkdownFile(filePath, title, logoPath = null) {
             // Marked.js ile markdown'ı HTML'e dönüştür
             const html = marked.parse(markdown);
             
+            // HTML içerisindeki görsel yollarını düzelt (özellikle logo)
+            let fixedHtml = html.replace(/img src="(\.\/)?logo\.png"/g, 'img src="docs/kurumsal/logo.png"');
+            
             // Logo varsa ekle
             let logoHTML = '';
             if (logoPath) {
@@ -385,7 +388,7 @@ function loadMarkdownFile(filePath, title, logoPath = null) {
             // Modal içeriğini güncelle ve geri butonunu ekle
             modalContent.innerHTML = `
                 ${logoHTML}
-                <div class="markdown-content">${html}</div>
+                <div class="markdown-content">${fixedHtml}</div>
                 <div class="back-to-category">
                     <button class="btn-back" title="Kategori listesine dön">
                         <i class="fas fa-arrow-left"></i> Kategori Listesine Dön
@@ -412,8 +415,17 @@ function loadMarkdownFile(filePath, title, logoPath = null) {
             // Doküman içindeki resimleri duyarlı hale getir
             document.querySelectorAll('.markdown-content img').forEach(img => {
                 img.classList.add('responsive-image');
+                
+                // Logo referanslarını düzelt
                 if (img.src.includes('logo.png')) {
                     img.classList.add('doc-logo-image');
+                    
+                    // Logo yükleme hatası için olay dinleyicisi
+                    img.onerror = function() {
+                        console.log('Logo yükleme hatası, yol düzeltiliyor...');
+                        this.src = 'docs/kurumsal/logo.png';
+                    };
+                    
                     // Logo için tıklama efekti
                     img.addEventListener('click', function() {
                         this.classList.toggle('logo-rotate');
