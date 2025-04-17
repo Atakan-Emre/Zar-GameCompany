@@ -1,6 +1,6 @@
 # Zar Game Company - Şirket Profili
 
-![Zar Game Company Logo](logo.png)
+![Zar Game Company Logo](./logo.png)
 
 ## Hakkımızda
 
