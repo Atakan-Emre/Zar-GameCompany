@@ -177,6 +177,26 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Logo görüntüleme efekti
+    const footerLogo = document.querySelector('.footer-logo-img');
+    if (footerLogo) {
+        footerLogo.addEventListener('mouseenter', function() {
+            this.classList.add('logo-active');
+        });
+        
+        footerLogo.addEventListener('mouseleave', function() {
+            this.classList.remove('logo-active');
+        });
+        
+        // Sayfa açılışında hafif animasyon efekti
+        setTimeout(() => {
+            footerLogo.classList.add('logo-animate');
+            setTimeout(() => {
+                footerLogo.classList.remove('logo-animate');
+            }, 1500);
+        }, 1000);
+    }
 });
 
 // Element görünür mü kontrolü

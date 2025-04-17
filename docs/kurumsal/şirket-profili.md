@@ -1,5 +1,7 @@
 # Zar Game Company - Şirket Profili
 
+![Zar Game Company Logo](logo.png)
+
 ## Hakkımızda
 
 Zar Game Company, eğitici ve eğlenceli mobil oyunlar geliştiren bir oyun şirketidir. Şirketimiz, özellikle artırılmış gerçeklik (AR) teknolojilerini kullanarak çocuklara ve gençlere yönelik eğitici içerikler sunar. Amacımız teknoloji ve eğitimi bir araya getirerek yenilikçi öğrenme deneyimleri yaratmaktır.

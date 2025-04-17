@@ -59,11 +59,12 @@ const documentCategories = {
     },
     "planlama": {
         "title": "Planlama Dokümanları",
-        "icon": "calendar",
+        "icon": "tasks",
         "color": "#7E57C2", // Orta Mor
         "documents": [
-            { "title": "Backlog ve Sprint Planı", "path": "planning/backlog.md" },
-            { "title": "Kullanıcı Hikayeleri", "path": "planning/user-story-örnekleri.md" }
+            { "title": "Backlog ve Sprint Planı", "path": "docs/planlama/backlog.md" },
+            { "title": "Kullanıcı Hikayeleri", "path": "docs/planlama/user-story-örnekleri.md" },
+            { "title": "Sprint Planı", "path": "docs/planlama/sprint-plan.md" }
         ]
     },
     "kurumsal": {
@@ -74,7 +75,8 @@ const documentCategories = {
             { "title": "Şirket Profili", "path": "docs/kurumsal/şirket-profili.md" },
             { "title": "İletişim Bilgileri", "path": "docs/kurumsal/iletişim-bilgileri.md" },
             { "title": "Kurumsal Kimlik", "path": "docs/kurumsal/kurumsal-kimlik.md" }
-        ]
+        ],
+        "logo": "docs/kurumsal/logo.png"
     }
 };
 
@@ -195,12 +197,22 @@ function showDocumentsModal(categoryKey) {
     modalHeader.textContent = category.title;
     
     // Doküman listesini oluştur
-    let docListHTML = `<div class="document-category-header" style="color: ${category.color}">
+    let docListHTML = '';
+
+    // Eğer kategoride logo varsa onu göster (özellikle kurumsal kategori için)
+    if (category.logo) {
+        docListHTML += `
+            <div class="category-logo-container">
+                <img src="${category.logo}" alt="${category.title} Logo" class="category-logo">
+            </div>
+        `;
+    }
+    
+    docListHTML += `<div class="document-category-header" style="color: ${category.color}">
         <i class="fas fa-${category.icon}"></i> 
         <h3>${category.title}</h3>
-    </div>`;
-    
-    docListHTML += '<div class="documents-list">';
+    </div>
+    <div class="documents-list">`;
     
     category.documents.forEach(doc => {
         // Dosya adını al (sadece gösterim için)
@@ -235,24 +247,27 @@ function showDocumentsModal(categoryKey) {
         const docTitle = item.querySelector('h4').textContent;
         
         // Tüm kart alanı tıklanabilir hale getiriliyor
-        item.addEventListener('click', (e) => {
+        item.addEventListener('click', function(e) {
             // Eğer buton tıklandıysa zaten kart tıklama olayı çalışacak
             // Çift tetiklemeyi önlemek için butonun kendisini kontrol ediyoruz
             if (!e.target.closest('.btn-view-doc')) {
-                loadMarkdownFile(docPath, docTitle);
+                loadMarkdownFile(docPath, docTitle, category.logo);
             }
         });
         
         // Buton için ayrı olay dinleyici
         const viewButton = item.querySelector('.btn-view-doc');
-        viewButton.addEventListener('click', (e) => {
+        viewButton.addEventListener('click', function(e) {
             e.stopPropagation(); // Event'in üst elemanlara yayılımını durdur
-            loadMarkdownFile(docPath, docTitle);
+            loadMarkdownFile(docPath, docTitle, category.logo);
         });
     });
     
     // Modalı göster
-    document.querySelector('.modal-overlay').classList.add('active');
+    const modalOverlay = document.querySelector('.modal-overlay');
+    if (modalOverlay) {
+        modalOverlay.classList.add('active');
+    }
 }
 
 /**
@@ -263,15 +278,19 @@ function closeModal() {
 }
 
 /**
- * Markdown dosyasını yükleyen ve görüntüleyen fonksiyon
+ * Markdown dosyasını yükleyip görüntüler
  */
-function loadMarkdownFile(filePath, title) {
+function loadMarkdownFile(filePath, title, logoPath = null) {
     const modalContent = document.querySelector('.modal-content');
+    const modalHeader = document.querySelector('.modal-header h2');
     
-    if (!modalContent) {
-        console.error("Modal içerik elementi bulunamadı");
+    if (!modalContent || !modalHeader) {
+        console.error("Modal elementleri bulunamadı");
         return;
     }
+    
+    // Modal başlığını güncelle
+    modalHeader.textContent = title;
     
     // Yükleniyor mesajı göster
     modalContent.innerHTML = `
@@ -281,23 +300,8 @@ function loadMarkdownFile(filePath, title) {
         </div>
     `;
     
-    // Modal başlığını güncelle
-    const modalHeader = document.querySelector('.modal-header h2');
-    if (modalHeader) {
-        modalHeader.textContent = title;
-    }
-    
-    // Modalı göster
-    document.querySelector('.modal-overlay').classList.add('active');
-    
-    // GitHub raw URL oluştur
-    const repoOwner = 'Atakan-Emre';
-    const repoName = 'Zar-GameCompany';
-    const branch = 'main';
-    const githubRawUrl = `https://raw.githubusercontent.com/${repoOwner}/${repoName}/${branch}/${filePath}`;
-    
-    // Markdown dosyasını getir
-    fetch(githubRawUrl)
+    // Dosya yoluna göre dosyayı yükle
+    fetch(filePath)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -308,20 +312,56 @@ function loadMarkdownFile(filePath, title) {
             // Marked.js ile markdown'ı HTML'e dönüştür
             const html = marked.parse(markdown);
             
+            // Logo varsa ekle
+            let logoHTML = '';
+            if (logoPath) {
+                logoHTML = `
+                    <div class="markdown-logo-container">
+                        <img src="${logoPath}" alt="Logo" class="markdown-logo animate-logo">
+                    </div>
+                `;
+            }
+            
             // Modal içeriğini güncelle
-            modalContent.innerHTML = `<div class="markdown-content">${html}</div>`;
+            modalContent.innerHTML = `
+                ${logoHTML}
+                <div class="markdown-content">${html}</div>
+            `;
             
             // İçeriğin tamamını görüntülemek için modalı kaydır
             modalContent.scrollTop = 0;
+            
+            // Kod blokları için syntax highlighting
+            if (window.hljs) {
+                document.querySelectorAll('.markdown-content pre code').forEach((block) => {
+                    hljs.highlightBlock(block);
+                });
+            }
+            
+            // Doküman içindeki resimleri duyarlı hale getir
+            document.querySelectorAll('.markdown-content img').forEach(img => {
+                img.classList.add('responsive-image');
+                if (img.src.includes('logo.png')) {
+                    img.classList.add('doc-logo-image');
+                    // Logo için tıklama efekti
+                    img.addEventListener('click', function() {
+                        this.classList.toggle('logo-rotate');
+                    });
+                } else {
+                    img.addEventListener('click', function() {
+                        openImageViewer(this.src);
+                    });
+                }
+            });
         })
         .catch(error => {
             console.error('Markdown dosyası yüklenemedi:', error);
             modalContent.innerHTML = `
-                <div class="not-found">
+                <div class="error-message">
                     <i class="fas fa-exclamation-triangle"></i>
-                    <h3>Doküman Bulunamadı</h3>
-                    <p>İstenen dosya yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</p>
-                    <p class="error-details">${error.message}</p>
+                    <h3>Doküman Yüklenemedi</h3>
+                    <p>İstenen dosya yüklenirken bir hata oluştu: ${error.message}</p>
+                    <p>Lütfen sistem yöneticisine başvurun.</p>
                 </div>
             `;
         });

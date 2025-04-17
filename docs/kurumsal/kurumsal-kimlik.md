@@ -4,7 +4,9 @@ Bu doküman, Zar Game Company'nin kurumsal kimlik öğelerini tanımlar ve marka
 
 ## Logo
 
-Zar Game Company logosu, şirketin yaratıcı ve eğitici yönünü vurgulayan bir tasarıma sahiptir. Logo, renkli bir zar ve oyun kontrolcüsü elementlerinin birleşiminden oluşur.
+![Zar Game Company Logo](logo.png)
+
+Zar Game Company logosu, şirketin yaratıcı ve eğitici yönünü vurgulayan bir tasarıma sahiptir. Logo, sarı renkli sevimli bir karakter, mavi VR gözlüğü ve renkli "Z(ar)" yazısından oluşmaktadır. Logomuz, oyun dünyasının eğlenceli ve yenilikçi ruhunu çocuklara yönelik dostane bir şekilde yansıtmaktadır.
 
 ### Logo Kullanımı
 - Logo, minimum 50 piksel yüksekliğinde kullanılmalıdır
@@ -14,7 +16,7 @@ Zar Game Company logosu, şirketin yaratıcı ve eğitici yönünü vurgulayan b
 
 ### Logo Varyasyonları
 - **Tam Logo**: Hem sembol hem de "Zar Game Company" yazısını içerir
-- **Yalnızca Sembol**: Sadece zar ve kontrolcü sembolünden oluşur
+- **Yalnızca Sembol**: Sadece karakter ve VR gözlük sembolünden oluşur
 - **Yalnızca Metin**: Sadece "Zar Game Company" yazısından oluşur
 
 ## Renk Paleti
