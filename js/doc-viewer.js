@@ -254,6 +254,8 @@ function showDocumentsModal(categoryKey) {
     let docListHTML = '';
 
     // Eğer kategoride logo varsa onu göster (özellikle kurumsal kategori için)
+    // Kullanıcının talebi üzerine kaldırıldı: logo otomatik gösterilmeyecek
+    /* 
     if (category.logo) {
         docListHTML += `
             <div class="category-logo-container">
@@ -261,6 +263,7 @@ function showDocumentsModal(categoryKey) {
             </div>
         `;
     }
+    */
     
     docListHTML += `<div class="document-category-header" style="color: ${category.color}">
         <i class="fas fa-${category.icon}"></i> 
@@ -375,8 +378,9 @@ function loadMarkdownFile(filePath, title, logoPath = null) {
             // HTML içerisindeki görsel yollarını düzelt (özellikle logo)
             let fixedHtml = html.replace(/img src="(\.\/)?logo\.png"/g, 'img src="docs/kurumsal/logo.png"');
             
-            // Logo varsa ekle
+            // Logo varsa ekle - Kullanıcının isteği üzerine kaldırıldı
             let logoHTML = '';
+            /*
             if (logoPath) {
                 logoHTML = `
                     <div class="markdown-logo-container">
@@ -384,6 +388,7 @@ function loadMarkdownFile(filePath, title, logoPath = null) {
                     </div>
                 `;
             }
+            */
             
             // Modal içeriğini güncelle ve geri butonunu ekle
             modalContent.innerHTML = `
