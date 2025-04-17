@@ -80,6 +80,9 @@ const documentCategories = {
     }
 };
 
+// Anlık görüntülenen kategori key'ini saklamak için global değişken
+let currentCategoryKey = '';
+
 /**
  * Doküman görüntüleyiciyi başlatan fonksiyon
  */
@@ -118,11 +121,53 @@ function initDocumentViewer() {
                 });
             }
             
+            // Modal header'a geri butonu ekleme
+            updateModalHeader();
+            
             console.log("Doküman görüntüleyici başarıyla başlatıldı");
         })
         .catch(error => {
             console.error("Doküman görüntüleyici başlatılamadı:", error);
         });
+}
+
+/**
+ * Modal header'ını güncelleyerek geri butonunu ekler
+ */
+function updateModalHeader() {
+    const modalHeader = document.querySelector('.modal-header');
+    if (modalHeader) {
+        // Mevcut içeriği koru ama geri butonu ekle
+        const currentTitle = modalHeader.querySelector('h2').textContent;
+        modalHeader.innerHTML = `
+            <button class="modal-back" title="Geri Dön"><i class="fas fa-arrow-left"></i></button>
+            <h2>${currentTitle}</h2>
+            <button class="modal-close" title="Kapat">&times;</button>
+        `;
+        
+        // Geri butonuna olay dinleyici ekle
+        const backButton = modalHeader.querySelector('.modal-back');
+        if (backButton) {
+            backButton.addEventListener('click', goBackToCategory);
+            // Başlangıçta geri butonu gizli olsun
+            backButton.style.display = 'none';
+        }
+        
+        // Kapatma butonuna olay dinleyici ekle
+        const closeButton = modalHeader.querySelector('.modal-close');
+        if (closeButton) {
+            closeButton.addEventListener('click', closeModal);
+        }
+    }
+}
+
+/**
+ * Kategori sayfasına geri dönüş işlemi
+ */
+function goBackToCategory() {
+    if (currentCategoryKey) {
+        showDocumentsModal(currentCategoryKey);
+    }
 }
 
 /**
@@ -185,12 +230,21 @@ function showDocumentsModal(categoryKey) {
         return;
     }
     
+    // Mevcut kategoriyi kaydet
+    currentCategoryKey = categoryKey;
+    
     const modalContent = document.querySelector('.modal-content');
     const modalHeader = document.querySelector('.modal-header h2');
+    const backButton = document.querySelector('.modal-back');
     
     if (!modalContent || !modalHeader) {
         console.error("Modal elementleri bulunamadı");
         return;
+    }
+    
+    // Geri butonunu gizle (kategorideyken geri butonu gösterme)
+    if (backButton) {
+        backButton.style.display = 'none';
     }
     
     // Modal başlığını güncelle
@@ -283,10 +337,16 @@ function closeModal() {
 function loadMarkdownFile(filePath, title, logoPath = null) {
     const modalContent = document.querySelector('.modal-content');
     const modalHeader = document.querySelector('.modal-header h2');
+    const backButton = document.querySelector('.modal-back');
     
     if (!modalContent || !modalHeader) {
         console.error("Modal elementleri bulunamadı");
         return;
+    }
+    
+    // Geri butonunu göster
+    if (backButton) {
+        backButton.style.display = 'block';
     }
     
     // Modal başlığını güncelle
@@ -322,11 +382,22 @@ function loadMarkdownFile(filePath, title, logoPath = null) {
                 `;
             }
             
-            // Modal içeriğini güncelle
+            // Modal içeriğini güncelle ve geri butonunu ekle
             modalContent.innerHTML = `
                 ${logoHTML}
                 <div class="markdown-content">${html}</div>
+                <div class="back-to-category">
+                    <button class="btn-back" title="Kategori listesine dön">
+                        <i class="fas fa-arrow-left"></i> Kategori Listesine Dön
+                    </button>
+                </div>
             `;
+            
+            // İçerik içindeki geri butonuna da tıklama olayı ekle
+            const contentBackBtn = modalContent.querySelector('.btn-back');
+            if (contentBackBtn) {
+                contentBackBtn.addEventListener('click', goBackToCategory);
+            }
             
             // İçeriğin tamamını görüntülemek için modalı kaydır
             modalContent.scrollTop = 0;
@@ -362,8 +433,17 @@ function loadMarkdownFile(filePath, title, logoPath = null) {
                     <h3>Doküman Yüklenemedi</h3>
                     <p>İstenen dosya yüklenirken bir hata oluştu: ${error.message}</p>
                     <p>Lütfen sistem yöneticisine başvurun.</p>
+                    <button class="btn-back" title="Kategori listesine dön">
+                        <i class="fas fa-arrow-left"></i> Kategori Listesine Dön
+                    </button>
                 </div>
             `;
+            
+            // Hata durumunda geri butonuna olay dinleyici ekle
+            const errorBackBtn = modalContent.querySelector('.btn-back');
+            if (errorBackBtn) {
+                errorBackBtn.addEventListener('click', goBackToCategory);
+            }
         });
 }
 
