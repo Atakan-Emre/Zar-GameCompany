@@ -399,8 +399,9 @@ function printDocument(docId) {
 // Planlama dokümanlarını gösteren fonksiyon
 function showPlanningDocs() {
     const planningDocs = [
-        { title: "Backlog ve Sprint Planı", path: "planning/backlog.md" },
-        { title: "Kullanıcı Hikayeleri", path: "planning/user-story-örnekleri.md" }
+        { title: "Backlog ve Sprint Planı", path: "docs/planlama/backlog.md" },
+        { title: "Kullanıcı Hikayeleri", path: "docs/planlama/user-story-örnekleri.md" },
+        { title: "Sprint Planı", path: "docs/planlama/sprint-plan.md" }
     ];
     
     // Modal öğesini getir

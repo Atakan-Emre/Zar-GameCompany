@@ -4,6 +4,10 @@
   <img src="docs/kurumsal/logo.png" alt="Zar Game Company Logo" width="250">
   <br><br>
   <p><strong>Eğlenceli Öğrenmeyle Dünyayı Keşfet</strong></p>
+  <br>
+  <a href="https://atakan-emre.github.io/Zar-GameCompany/" target="_blank">
+    <img src="https://img.shields.io/badge/🚀_Sitemizi_Ziyaret_Et-5E35B1?style=for-the-badge&logo=globe&logoColor=white" alt="Sitemizi Ziyaret Et" width="250"/>
+  </a>
 </div>
 
 ## 📱 Proje Tanıtımı
