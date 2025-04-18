@@ -119,7 +119,7 @@ Detaylı bilgi için: [Şirket Profili](docs/kurumsal/şirket-profili.md) | [Kur
 1. Depoyu klonlayın: 
 ```bash
 git clone https://github.com/Atakan-Emre/Zar-GameCompany.git
-cd Dunya-Kasifi-AR
+cd Zar-GameCompany
 ```
 
 2. Unity projesini açın:
@@ -143,17 +143,17 @@ npm start
 
 ## 📊 Roadmap ve İlerleme
 
-- [x] Konsept ve Proje Planı (Q1 2023)
-- [x] Prototip Geliştirme (Q2 2023)
-- [x] Alpha Sürümü (Q3 2023)
-- [ ] Beta Testi (Q4 2023)
-- [ ] İlk Resmi Sürüm (Q1 2024)
-- [ ] Yeni Ülke Paketleri (Q2 2024)
-- [ ] Multiplayer Özellikleri (Q3 2024)
+- [x] Konsept ve Proje Planı (Q1 2025)
+- [x] Prototip Geliştirme (Q2 2025)
+- [x] Alpha Sürümü (Q3 2025)
+- [ ] Beta Testi (Q4 2025)
+- [ ] İlk Resmi Sürüm (Q1 2026)
+- [ ] Yeni Ülke Paketleri (Q2 2026)
+- [ ] Multiplayer Özellikleri (Q3 2026)
 
 ## 📑 Lisans ve Telif Hakkı
 
-© 2023-2025 Zar Game Company. Tüm hakları saklıdır.
+© 2024-2025 Zar Game Company. Tüm hakları saklıdır.
 
 Bu projenin kaynak kodu [LICENSE](LICENSE) dosyasında belirtilen şartlar altında lisanslanmıştır.
 
