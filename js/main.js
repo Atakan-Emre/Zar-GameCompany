@@ -417,6 +417,23 @@ function showPlanningDocs() {
     // Modal başlığını güncelle
     modalHeader.textContent = "Planlama Dokümanları";
     
+    // Geri butonu için modal header'ı güncelle
+    updateModalHeader();
+    
+    // Global değişken olarak planlama kategorisini belirt
+    window.currentCategoryKey = 'planlama';
+    
+    // Geri butonunu gizle (kategorideyken gösterme)
+    const backButton = document.querySelector('.modal-back');
+    if (backButton) {
+        backButton.style.display = 'none';
+        
+        // Geri butonuna olay dinleyici ekle - ana planlama listesine dönüş
+        backButton.addEventListener('click', function() {
+            showPlanningDocs();
+        });
+    }
+    
     // Doküman listesini oluştur
     let planningDocsHTML = `
         <div class="document-category-header" style="color: #5E35B1">
@@ -463,7 +480,7 @@ function showPlanningDocs() {
             // Eğer buton tıklandıysa zaten kart tıklama olayı çalışacak
             // Çift tetiklemeyi önlemek için butonun kendisini kontrol ediyoruz
             if (!e.target.closest('.btn-view-doc')) {
-                loadMarkdownFile(docPath, docTitle);
+                loadMarkdownDocWithBackButton(docPath, docTitle);
             }
         });
         
@@ -471,7 +488,7 @@ function showPlanningDocs() {
         const viewButton = item.querySelector('.btn-view-doc');
         viewButton.addEventListener('click', (e) => {
             e.stopPropagation(); // Event'in üst elemanlara yayılımını durdur
-            loadMarkdownFile(docPath, docTitle);
+            loadMarkdownDocWithBackButton(docPath, docTitle);
         });
     });
     
@@ -479,16 +496,46 @@ function showPlanningDocs() {
     modalOverlay.classList.add('active');
 }
 
-/**
- * Markdown dosyasını yükleyen ve görüntüleyen fonksiyon
- */
-function loadMarkdownFile(filePath, title) {
+// Modal header'ını güncelleyerek geri butonunu ekler
+function updateModalHeader() {
+    const modalHeader = document.querySelector('.modal-header');
+    if (modalHeader) {
+        // Mevcut içeriği koru ama geri butonu ekle
+        const currentTitle = modalHeader.querySelector('h2').textContent;
+        modalHeader.innerHTML = `
+            <button class="modal-back" title="Geri Dön"><i class="fas fa-arrow-left"></i></button>
+            <h2>${currentTitle}</h2>
+            <button class="modal-close" title="Kapat">&times;</button>
+        `;
+        
+        // Kapatma butonuna olay dinleyici ekle
+        const closeButton = modalHeader.querySelector('.modal-close');
+        if (closeButton) {
+            closeButton.addEventListener('click', function() {
+                document.querySelector('.modal-overlay').classList.remove('active');
+            });
+        }
+    }
+}
+
+// Markdown dokümanını yükler ve geri butonu işlevselliğini sağlar
+function loadMarkdownDocWithBackButton(filePath, title) {
     const modalContent = document.querySelector('.modal-content');
+    const modalHeader = document.querySelector('.modal-header h2');
+    const backButton = document.querySelector('.modal-back');
     
-    if (!modalContent) {
-        console.error("Modal içerik elementi bulunamadı");
+    if (!modalContent || !modalHeader) {
+        console.error("Modal elementleri bulunamadı");
         return;
     }
+    
+    // Geri butonunu göster
+    if (backButton) {
+        backButton.style.display = 'block';
+    }
+    
+    // Modal başlığını güncelle
+    modalHeader.textContent = title;
     
     // Yükleniyor mesajı göster
     modalContent.innerHTML = `
@@ -497,12 +544,6 @@ function loadMarkdownFile(filePath, title) {
             <div class="loading-text">Doküman yükleniyor...</div>
         </div>
     `;
-    
-    // Modal başlığını güncelle
-    const modalHeader = document.querySelector('.modal-header h2');
-    if (modalHeader) {
-        modalHeader.textContent = title;
-    }
     
     // Dosya yoluna göre local dosya kullan
     fetch(filePath)
@@ -516,8 +557,21 @@ function loadMarkdownFile(filePath, title) {
             // Marked.js ile markdown'ı HTML'e dönüştür
             const html = marked.parse(markdown);
             
-            // Modal içeriğini güncelle
-            modalContent.innerHTML = `<div class="markdown-content">${html}</div>`;
+            // Modal içeriğini güncelle ve kategorilere dön butonu ekle
+            modalContent.innerHTML = `
+                <div class="markdown-content">${html}</div>
+                <div class="back-to-category" style="margin-top: 20px; text-align: center;">
+                    <button class="btn-back" style="background-color: #5E35B1; color: white; padding: 8px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;">
+                        <i class="fas fa-arrow-left"></i> Kategorilere Dön
+                    </button>
+                </div>
+            `;
+            
+            // Kategorilere dön butonuna tıklama olayı ekle
+            const contentBackBtn = modalContent.querySelector('.btn-back');
+            if (contentBackBtn) {
+                contentBackBtn.addEventListener('click', showPlanningDocs);
+            }
             
             // İçeriğin tamamını görüntülemek için modalı kaydır
             modalContent.scrollTop = 0;
@@ -537,8 +591,19 @@ function loadMarkdownFile(filePath, title) {
                     <h3>Doküman Bulunamadı</h3>
                     <p>İstenen dosya yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</p>
                     <p class="error-details">${error.message}</p>
+                    <div class="back-to-category" style="margin-top: 20px; text-align: center;">
+                        <button class="btn-back" style="background-color: #5E35B1; color: white; padding: 8px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;">
+                            <i class="fas fa-arrow-left"></i> Kategorilere Dön
+                        </button>
+                    </div>
                 </div>
             `;
+            
+            // Hata durumunda da geri butonuna olay dinleyicisi ekle
+            const errorBackBtn = modalContent.querySelector('.btn-back');
+            if (errorBackBtn) {
+                errorBackBtn.addEventListener('click', showPlanningDocs);
+            }
         });
 }
 
