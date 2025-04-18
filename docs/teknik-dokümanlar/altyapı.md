@@ -1,10 +1,10 @@
 # Sunucu, API ve Veritabanı Altyapısı
 
-Bu doküman, Dünya Kaşifi AR mobil uygulamasının sunucu altyapısı, API mimarisi ve veritabanı yapısını tanımlar.
+Bu doküman, Macera Haritası AR mobil uygulamasının sunucu altyapısı, API mimarisi ve veritabanı yapısını tanımlar.
 
 ## Genel Altyapı Mimarisi
 
-Dünya Kaşifi AR uygulaması, istemci tarafında yoğun işlem yapan "client-heavy" bir mimari kullanır. Ancak içerik güncellemeleri, kullanıcı ilerleme senkronizasyonu ve çok oyunculu özellikler için bulut tabanlı bir altyapı da gereklidir.
+Macera Haritası AR uygulaması, istemci tarafında yoğun işlem yapan "client-heavy" bir mimari kullanır. Ancak içerik güncellemeleri, kullanıcı ilerleme senkronizasyonu ve çok oyunculu özellikler için bulut tabanlı bir altyapı da gereklidir.
 
 ```
 ┌─────────────────┐     ┌─────────────────────────────────┐
@@ -71,7 +71,7 @@ Düşük gecikme süresi sağlamak için çoklu bölge dağıtımı:
 
 ## API Mimarisi
 
-Dünya Kaşifi AR uygulaması, RESTful ve WebSocket API'leri birlikte kullanır.
+Macera Haritası AR uygulaması, RESTful ve WebSocket API'leri birlikte kullanır.
 
 ### API Gateway
 
@@ -126,7 +126,7 @@ Dünya Kaşifi AR uygulaması, RESTful ve WebSocket API'leri birlikte kullanır.
 
 Gerçek zamanlı özellikler için WebSocket bağlantıları:
 
-- `wss://api.dunyakasifi.com/realtime`
+- `wss://api.maceraharitasi.com/realtime`
 
 #### WebSocket Olayları
 
@@ -149,7 +149,7 @@ API versiyonlama stratejisi:
 
 ## Veritabanı Mimarisi
 
-Dünya Kaşifi uygulaması, çeşitli veri türleri için farklı veritabanı teknolojileri kullanır.
+Macera Haritası uygulaması, çeşitli veri türleri için farklı veritabanı teknolojileri kullanır.
 
 ### Ana Veritabanları
 
@@ -350,4 +350,4 @@ Arama ve filtreleme işlemleri için:
 
 ---
 
-Bu altyapı dokümanı, Dünya Kaşifi AR uygulamasının sunucu, API ve veritabanı bileşenlerini tanımlar. Uygulama geliştirme süreci ilerledikçe güncellemeler yapılabilir. 
+Bu altyapı dokümanı, Macera Haritası AR uygulamasının sunucu, API ve veritabanı bileşenlerini tanımlar. Uygulama geliştirme süreci ilerledikçe güncellemeler yapılabilir. 

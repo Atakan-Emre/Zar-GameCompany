@@ -1,10 +1,10 @@
-# AR Entegrasyon Notları
+# AR Teknolojileri Entegrasyonu
 
-Bu doküman, Dünya Kaşifi mobil uygulamasında kullanılacak Artırılmış Gerçeklik (AR) teknolojilerinin teknik entegrasyonuna dair detayları içerir.
+Bu doküman, Macera Haritası mobil uygulamasında kullanılacak Artırılmış Gerçeklik (AR) teknolojilerinin teknik entegrasyonuna dair detayları içerir.
 
-## AR Teknoloji Seçimi
+## 1. AR Teknoloji Altyapısı
 
-Dünya Kaşifi, çapraz platform desteği sunmak için aşağıdaki AR teknolojilerini kullanacaktır:
+Macera Haritası, çapraz platform desteği sunmak için aşağıdaki AR teknolojilerini kullanacaktır:
 
 ### Temel AR Framework'leri
 
@@ -170,4 +170,4 @@ Dünya Kaşifi, çapraz platform desteği sunmak için aşağıdaki AR teknoloji
 
 ---
 
-Bu AR entegrasyon kılavuzu, Dünya Kaşifi uygulamasının geliştirme sürecinde teknik ekibe yol gösterici olarak hazırlanmıştır. Teknolojik gelişmeler ve uygulama gereksinimleri doğrultusunda güncellenecektir. 
+Bu AR entegrasyon kılavuzu, Macera Haritası uygulamasının geliştirme sürecinde teknik ekibe yol gösterici olarak hazırlanmıştır. Teknolojik gelişmeler ve uygulama gereksinimleri doğrultusunda güncellenecektir. 

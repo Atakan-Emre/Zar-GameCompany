@@ -1,4 +1,4 @@
-#  Dünya Kaşifi - 2 Haftalık Sprint Planı
+#  Macera Haritası - 2 Haftalık Sprint Planı
 
 **Toplam Sprint:** 7  
 **Toplam Süre:** 2 Hafta  

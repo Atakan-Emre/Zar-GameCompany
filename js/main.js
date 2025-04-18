@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (primaryBtn) {
         primaryBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            showNotification('Dünya Kaşifi yakında geliyor! Takipte kalın...', 'info');
+            showNotification('Macera Haritası yakında geliyor! Takipte kalın...', 'info');
         });
     }
     
@@ -371,7 +371,7 @@ function printDocument(docId) {
     printWindow.document.write(`
         <html>
         <head>
-            <title>Dünya Kaşifi - Doküman</title>
+            <title>Macera Haritası - Doküman</title>
             <link rel="stylesheet" href="css/style.css">
             <style>
                 body { font-family: Arial, sans-serif; padding: 20px; }
@@ -386,7 +386,7 @@ function printDocument(docId) {
                 <button onclick="window.print()">Yazdır</button>
                 <button onclick="window.close()">Kapat</button>
             </div>
-            <h1>Dünya Kaşifi - Doküman</h1>
+            <h1>Macera Haritası - Doküman</h1>
             <hr>
             ${documentContent}
         </body>
@@ -539,4 +539,34 @@ function loadMarkdownFile(filePath, title) {
                 </div>
             `;
         });
-} 
+}
+
+/**
+ * Doküman görüntüleme modu - Header
+ */
+let documentHeader = `
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macera Haritası - Doküman</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/markdown-viewer.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body { padding: 20px; max-width: 900px; margin: 0 auto; }
+        .doc-header { display: flex; align-items: center; margin-bottom: 20px; }
+        .doc-logo { width: 60px; margin-right: 15px; }
+        .doc-title { margin: 0; color: #673AB7; }
+        .back-link { display: inline-block; margin-top: 30px; color: #673AB7; text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="doc-header">
+        <img src="docs/kurumsal/logo.png" class="doc-logo" alt="Logo">
+        <h1>Macera Haritası - Doküman</h1>
+    </div>
+`; 

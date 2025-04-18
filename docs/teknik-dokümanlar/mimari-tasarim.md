@@ -1,10 +1,10 @@
 # Uygulama Mimarisi ve Modül Şeması
 
-Bu doküman, Dünya Kaşifi AR mobil uygulamasının mimari tasarımını ve modül yapısını detaylandırır.
+Bu doküman, Macera Haritası AR mobil uygulamasının mimari tasarımını ve modül yapısını detaylandırır.
 
 ## Genel Mimari Bakış
 
-Dünya Kaşifi, Unity oyun motoru üzerine inşa edilmiş, AR Foundation framework'ünü kullanarak iOS ve Android platformlarında çalışabilen cross-platform bir uygulamadır. Uygulama mimarisi, modüler ve katmanlı bir yapıda tasarlanmıştır.
+Macera Haritası, Unity oyun motoru üzerine inşa edilmiş, AR Foundation framework'ünü kullanarak iOS ve Android platformlarında çalışabilen cross-platform bir uygulamadır. Uygulama mimarisi, modüler ve katmanlı bir yapıda tasarlanmıştır.
 
 ### Mimari Katmanlar
 
@@ -309,4 +309,4 @@ Modüller arası iletişim, event-driven mimari kullanılarak gerçekleştirilir
 
 ---
 
-Bu doküman, Dünya Kaşifi AR uygulamasının mimari tasarımını ve modül yapısını tanımlar. Uygulama geliştirme sürecinde değişiklikler olabilir ve mimari, yeni gereksinimlere göre güncellenebilir. 
+Bu doküman, Macera Haritası AR uygulamasının mimari tasarımını ve modül yapısını tanımlar. Uygulama geliştirme sürecinde değişiklikler olabilir ve mimari, yeni gereksinimlere göre güncellenebilir. 

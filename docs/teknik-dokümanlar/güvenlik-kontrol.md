@@ -1,10 +1,10 @@
-# Ebeveyn Kontrolü, Göz Sağlığı ve Pozisyon Önerileri
+# Ebeveyn Kontrolü ve Güvenlik Özellikleri
 
-Bu doküman, Dünya Kaşifi AR mobil uygulamasında kullanılan ebeveyn kontrolü mekanizmalarını, göz sağlığı koruma özelliklerini ve doğru kullanım pozisyonu önerileri sistemlerini detaylandırır.
+Bu doküman, Macera Haritası AR mobil uygulamasında kullanılan ebeveyn kontrolü mekanizmalarını, göz sağlığı koruma özelliklerini ve doğru kullanım pozisyonu önerileri sistemlerini detaylandırır.
 
-## Ebeveyn Kontrolü Sistemi
+## 1. Ebeveyn Kontrolü Sistemi
 
-Dünya Kaşifi AR uygulaması, çocuk kullanıcılar için güvenli bir deneyim sağlamak ve ebeveynlerin çocuklarının uygulama kullanımını kontrol edebilmelerini sağlamak amacıyla kapsamlı bir ebeveyn kontrol sistemi içerir.
+Macera Haritası AR uygulaması, çocuk kullanıcılar için güvenli bir deneyim sağlamak ve ebeveynlerin çocuklarının uygulama kullanımını kontrol edebilmelerini sağlamak amacıyla kapsamlı bir ebeveyn kontrol sistemine sahiptir.
 
 ### Hesap Yönetimi
 
@@ -80,9 +80,9 @@ Dünya Kaşifi AR uygulaması, çocuk kullanıcılar için güvenli bir deneyim 
 - **Hızlı Eylemler**: Sık kullanılan ayarlar için tek dokunuşla erişim
 - **Yardım ve Rehberlik**: Ebeveyn kontrolü kullanımı hakkında kapsamlı rehberlik içeriği
 
-## Göz Sağlığı Koruma Özellikleri
+## 2. Göz Sağlığı Koruma Özellikleri
 
-AR teknolojisi kullanımı sırasında göz sağlığını korumak için Dünya Kaşifi uygulaması çeşitli önlemler içerir.
+AR teknolojisi kullanımı sırasında göz sağlığını korumak için Macera Haritası uygulaması çeşitli önlemler içerir.
 
 ### Mola Hatırlatıcıları
 
@@ -146,9 +146,9 @@ AR teknolojisi kullanımı sırasında göz sağlığını korumak için Dünya 
 - Animasyon hızı ve geçiş efektleri kişiselleştirme
 - Görsel karmaşıklığı azaltma seçenekleri
 
-## Doğru Kullanım Pozisyonu Önerileri
+## 3. Doğru Kullanım Pozisyonu ve Çevresel Güvenlik
 
-AR teknolojilerinin fiziksel konfor ve güvenlik içinde kullanılabilmesi için Dünya Kaşifi uygulaması, kullanım pozisyonu ve çevresel güvenlikle ilgili çeşitli özellikler içerir.
+AR teknolojilerinin fiziksel konfor ve güvenlik içinde kullanılabilmesi için Macera Haritası uygulaması, kullanım pozisyonu ve çevresel güvenlikle ilgili çeşitli özellikler içerir.
 
 ### Fiziksel Ortam Değerlendirmesi
 
@@ -292,4 +292,4 @@ AR teknolojilerinin fiziksel konfor ve güvenlik içinde kullanılabilmesi için
 
 ---
 
-Bu doküman, Dünya Kaşifi AR uygulamasının ebeveyn kontrolü, göz sağlığı koruma ve doğru kullanım pozisyonu önerme özelliklerini detaylandırır. Uygulama geliştikçe ve yeni araştırmalar ışığında bu özellikler güncellenecektir. 
+Bu doküman, Macera Haritası AR uygulamasının ebeveyn kontrolü, göz sağlığı koruma ve doğru kullanım pozisyonu önerme özelliklerini detaylandırır. Uygulama geliştikçe ve yeni araştırmalar ışığında bu özellikler güncellenecektir. 

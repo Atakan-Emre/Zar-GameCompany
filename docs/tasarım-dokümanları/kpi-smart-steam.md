@@ -1,6 +1,6 @@
-# KPI, SMART Hedefleri ve STEAM Yaklaşımı
+# KPI, SMART Hedefler ve STEAM Yaklaşımı
 
-Bu doküman, Dünya Kaşifi AR mobil uygulamasının Anahtar Performans Göstergeleri (KPI), SMART hedefleri ve STEAM eğitim yaklaşımını detaylandırır.
+Bu doküman, Macera Haritası AR mobil uygulamasının Anahtar Performans Göstergeleri (KPI), SMART hedefleri ve STEAM eğitim yaklaşımını detaylandırır.
 
 ## Anahtar Performans Göstergeleri (KPI)
 
@@ -109,9 +109,9 @@ Bu doküman, Dünya Kaşifi AR mobil uygulamasının Anahtar Performans Gösterg
    - Temel düzeyde 5+ dilde iletişim kurabilme
    - "Üstün Kaşif" statüsüne ulaşma
 
-## STEAM Yaklaşımı
+## 3. STEAM Eğitim Yaklaşımı
 
-Dünya Kaşifi, STEAM (Bilim, Teknoloji, Mühendislik, Sanat ve Matematik) eğitim modelini uygulayarak çocukların farklı becerilerini geliştirmeyi hedefler.
+Macera Haritası, STEAM (Bilim, Teknoloji, Mühendislik, Sanat ve Matematik) eğitim modelini uygulayarak çocukların farklı becerilerini geliştirmeyi hedefler.
 
 ### Bilim (Science)
 
@@ -220,4 +220,4 @@ Dünya Kaşifi, STEAM (Bilim, Teknoloji, Mühendislik, Sanat ve Matematik) eğit
 
 ---
 
-Bu doküman, Dünya Kaşifi AR uygulamasının performans ölçümü, hedef belirleme ve eğitimsel yaklaşımına rehberlik etmek üzere hazırlanmıştır. Uygulama geliştikçe ve kullanıcı geri bildirimleri alındıkça güncellenecektir. 
+Bu doküman, Macera Haritası AR uygulamasının performans ölçümü, hedef belirleme ve eğitimsel yaklaşımına rehberlik etmek üzere hazırlanmıştır. Uygulama geliştikçe ve kullanıcı geri bildirimleri alındıkça güncellenecektir. 

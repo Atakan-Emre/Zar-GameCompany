@@ -1,6 +1,6 @@
 # Kullanıcı Hikayesi Örnekleri
 
-Bu doküman, Dünya Kaşifi AR mobil uygulaması için kullanıcı hikayelerini içerir. Bu hikayeler, farklı kullanıcı personaları için uygulamanın temel kullanım senaryolarını tanımlar.
+Bu doküman, Macera Haritası AR mobil uygulaması için kullanıcı hikayelerini içerir. Bu hikayeler, farklı kullanıcı personaları için uygulamanın temel kullanım senaryolarını tanımlar.
 
 ## Kullanıcı Personaları
 
@@ -312,4 +312,4 @@ Bu doküman, Dünya Kaşifi AR mobil uygulaması için kullanıcı hikayelerini 
 
 ---
 
-Bu kullanıcı hikayeleri, Dünya Kaşifi AR uygulamasının geliştirme sürecinde yol gösterici olarak kullanılacaktır. Geliştirme ilerledikçe ve kullanıcı geri bildirimleri alındıkça bu hikayeler güncellenebilir ve genişletilebilir.
+Bu kullanıcı hikayeleri, Macera Haritası AR uygulamasının geliştirme sürecinde yol gösterici olarak kullanılacaktır. Geliştirme ilerledikçe ve kullanıcı geri bildirimleri alındıkça bu hikayeler güncellenebilir ve genişletilebilir.
