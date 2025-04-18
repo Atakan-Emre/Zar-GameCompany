@@ -1,6 +1,6 @@
-# Kaynak Kod
+# Kaynak Kodları
 
-Bu klasör, Dünya Kaşifi AR mobil uygulamasının kaynak kodunu içerir.
+Bu klasör, Macera Haritası AR mobil uygulamasının kaynak kodunu içerir.
 
 ## Klasör Yapısı
 

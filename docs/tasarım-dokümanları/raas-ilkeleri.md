@@ -1,8 +1,7 @@
-# RAAS (Gerçekliği Bir Hizmet Olarak) Tasarım İlkeleri
+# RAAS (Reality as a Service) Tasarım İlkeleri
 
-## RAAS Nedir?
-
-RAAS (Reality as a Service - Gerçekliği Bir Hizmet Olarak), Artırılmış Gerçeklik (AR), Sanal Gerçeklik (VR) ve Karma Gerçeklik (MR) teknolojilerini bir hizmet modeli çerçevesinde sunma yaklaşımıdır. Dünya Kaşifi AR uygulaması, bu yaklaşımı benimseyerek çocuklara eğitici içerikleri artırılmış gerçeklik deneyimi içinde sunmaktadır.
+## Giriş
+RAAS (Reality as a Service / Hizmet Olarak Gerçeklik), artırılmış gerçeklik (AR) ve sanal gerçeklik (VR) teknolojilerini bir hizmet modeli çerçevesinde sunma yaklaşımıdır. Macera Haritası AR uygulaması, bu yaklaşımı benimseyerek çocuklara eğitici içerikleri artırılmış gerçeklik deneyimi içinde sunmaktadır.
 
 ## RAAS Yaklaşımının Temel İlkeleri
 
@@ -36,7 +35,7 @@ RAAS (Reality as a Service - Gerçekliği Bir Hizmet Olarak), Artırılmış Ger
 - **Oyunlaştırma**: Öğrenmeyi teşvik eden rozet, seviye ve ödül sistemleri
 - **Eğlence Faktörü**: Eğitici içeriğin çekici ve eğlenceli bir formatta sunumu
 
-## Dünya Kaşifi'nde RAAS Uygulamaları
+## Macera Haritası'nda RAAS Uygulamaları
 
 ### AR Harita Deneyimi
 
@@ -171,4 +170,4 @@ RAAS (Reality as a Service - Gerçekliği Bir Hizmet Olarak), Artırılmış Ger
 
 ---
 
-Bu RAAS tasarım ilkeleri dokümanı, Dünya Kaşifi AR uygulamasının geliştirilmesinde temel bir kılavuz olarak kullanılacaktır. Teknolojik gelişmeler ve kullanıcı geri bildirimleri doğrultusunda güncellenecektir. 
+Bu RAAS tasarım ilkeleri dokümanı, Macera Haritası AR uygulamasının geliştirilmesinde temel bir kılavuz olarak kullanılacaktır. Teknolojik gelişmeler ve kullanıcı geri bildirimleri doğrultusunda güncellenecektir. 

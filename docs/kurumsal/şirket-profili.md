@@ -26,7 +26,7 @@ Eğitici oyunlar ve artırılmış gerçeklik deneyimleriyle dünya çapında ö
 
 Zar Game Company, eğitim teknolojileri alanında deneyimli iki profesyonel tarafından kurulmuştur. Şahin Atakan Emre ve Züleyha Kezer, çocukların öğrenme süreçlerini daha interaktif ve eğlenceli hale getirmek amacıyla bir araya gelerek Zar Game Company'i hayata geçirmişlerdir.
 
-Şirketimiz, kurulduğu günden bu yana artırılmış gerçeklik teknolojilerinin eğitim alanındaki potansiyelini ortaya çıkarmak için çalışmaktadır. İlk projemiz olan "Dünya Kaşifi", çocukların dünya coğrafyası, farklı kültürler ve diller hakkında eğlenceli bir şekilde öğrenmelerini sağlayan bir AR mobil uygulamasıdır.
+Şirketimiz, kurulduğu günden bu yana artırılmış gerçeklik teknolojilerinin eğitim alanındaki potansiyelini ortaya çıkarmak için çalışmaktadır. İlk projemiz olan "Macera Haritası", çocukların dünya coğrafyası, farklı kültürler ve diller hakkında eğlenceli bir şekilde öğrenmelerini sağlayan bir AR mobil uygulamasıdır.
 
 ## Ekibimiz
 

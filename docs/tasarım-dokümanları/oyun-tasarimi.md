@@ -1,8 +1,14 @@
-# Dünya Kaşifi - Oyun Tasarımı
+# Macera Haritası - Oyun Tasarımı
+
+## Oyun Tanımı
+Macera Haritası, çocukların uçuş esnasında eğlenceli ve interaktif bir şekilde farklı ülkeleri, kültürleri ve dilleri keşfetmelerini amaçlayan bir artırılmış gerçeklik (AR) mobil oyunudur. Oyun, dünya haritası üzerinde interaktif noktalar ve 3D modeller sunarak çocukların global vatandaşlık bilincini ve kültürel farkındalığını artırmayı hedefler.
 
 ## Oyun Konsepti
 
-Dünya Kaşifi, çocukların uçuş esnasında eğlenceli ve interaktif bir şekilde farklı ülkeleri, kültürleri ve dilleri keşfetmelerini amaçlayan bir artırılmış gerçeklik (AR) mobil oyunudur. Oyun, dünya haritası üzerinde sanal bir yolculuk sunarak, çocukların farklı kültürleri, dilleri ve coğrafyayı keşfetmelerini sağlar.
+- Kullanıcı ilk girişte bir "Macera Haritası" avatarı oluşturur
+- Cinsiyet, saç stili, cilt tonu ve kıyafet seçimleri yapılır
+- Kullanıcı, kaşif karakterine bir isim verir
+- Karaktere başlangıç ekipmanları verilir (Kaşif Pasaportu, Temel Harita)
 
 ## Hedef Kitle
 
@@ -14,7 +20,7 @@ Dünya Kaşifi, çocukların uçuş esnasında eğlenceli ve interaktif bir şek
 
 ### 1. Başlangıç ve Karakter Oluşturma
 
-- Kullanıcı ilk girişte bir "Dünya Kaşifi" avatarı oluşturur
+- Kullanıcı ilk girişte bir "Macera Haritası" avatarı oluşturur
 - Cinsiyet, saç stili, cilt tonu ve kıyafet seçimleri yapılır
 - Kullanıcı, kaşif karakterine bir isim verir
 - Karaktere başlangıç ekipmanları verilir (Kaşif Pasaportu, Temel Harita)
@@ -155,4 +161,4 @@ Her ülke ziyaretinde:
 
 ---
 
-Bu oyun tasarım dokümanı, Dünya Kaşifi AR uygulamasının temel özelliklerini ve oyun mekaniklerini tanımlar. Geliştirme sürecinde detaylar değişebilir ve yeni özellikler eklenebilir. 
+Bu oyun tasarım dokümanı, Macera Haritası AR uygulamasının temel özelliklerini ve oyun mekaniklerini tanımlar. Geliştirme sürecinde detaylar değişebilir ve yeni özellikler eklenebilir. 

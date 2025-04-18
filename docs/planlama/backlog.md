@@ -1,6 +1,6 @@
 # Ürün ve Sprint Backlog
 
-Bu belge, Dünya Kaşifi AR mobil uygulaması için ürün backlog'u ve sprint planlamasını içerir.
+Bu belge, Macera Haritası AR mobil uygulaması için ürün backlog'u ve sprint planlamasını içerir.
 
 ## Ürün Backlog
 

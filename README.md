@@ -1,4 +1,4 @@
-# Dünya Kaşifi: AR Tabanlı Eğitici Mobil Uygulama
+# Macera Haritası: AR Tabanlı Eğitici Mobil Uygulama
 
 <div align="center">
   <img src="docs/kurumsal/logo.png" alt="Zar Game Company Logo" width="250">
@@ -8,7 +8,7 @@
 
 ## 📱 Proje Tanıtımı
 
-**Dünya Kaşifi**, **Zar Game Company** tarafından geliştirilen, çocukların uçuş esnasında farklı ülkeleri, kültürleri ve dilleri eğlenceli ve interaktif bir şekilde keşfetmelerini sağlayan artırılmış gerçeklik (AR) tabanlı bir mobil uygulamadır. Eğitim ve eğlenceyi birleştiren yapısıyla, çocukların global vatandaşlık bilincini geliştirmeyi hedefler.
+**Macera Haritası**, **Zar Game Company** tarafından geliştirilen, çocukların uçuş esnasında farklı ülkeleri, kültürleri ve dilleri eğlenceli ve interaktif bir şekilde keşfetmelerini sağlayan artırılmış gerçeklik (AR) tabanlı bir mobil uygulamadır. Eğitim ve eğlenceyi birleştiren yapısıyla, çocukların global vatandaşlık bilincini geliştirmeyi hedefler.
 
 Proje, zengin AR deneyimleri, mini oyunlar, dil öğrenimi aktiviteleri ve ödül mekanizmalarıyla donatılmıştır. Çocukların ilgi çekici bir şekilde dünya kültürlerini tanımasına, farklı dillerden kelimeler öğrenmesine ve eğlenerek keşfetmesine olanak tanır.
 
