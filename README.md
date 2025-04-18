@@ -22,6 +22,24 @@ Proje, zengin AR deneyimleri, mini oyunlar, dil öğrenimi aktiviteleri ve ödü
 - **iOS:** 12.0 ve üzeri
 - **Desteklenen AR Çerçeveleri:** ARCore, ARKit
 
+## 📦 Proje Dosya Yapısı
+
+Proje ana dosyalarımız aşağıdaki klasör yapısında organize edilmiştir:
+
+```
+project/
+├── source/                    # Proje kaynak kodları ve başlangıç dosyaları
+│   └── HayalHaritasi_AR_Starter.zip  # AR uygulaması başlangıç paketi
+├── apk/                       # Android uygulama paketleri
+│   └── hayalharitasi_base.apk # Temel Android uygulama paketi
+└── ios/                       # iOS uygulama dosyaları ve derleme çıktıları
+```
+
+Bu yapıda:
+- **source/** klasörü projenin kaynak kodlarını ve geliştirme dosyalarını içerir
+- **apk/** klasörü Android platformu için derlenmiş uygulama paketlerini barındırır
+- **ios/** klasörü ise iOS platformu için gerekli derleme dosyalarını ve çıktılarını içerir
+
 ## ⭐ Öne Çıkan Özellikler
 
 ### 📍 Artırılmış Gerçeklik Deneyimleri
