@@ -16,6 +16,13 @@
 
 Proje, zengin AR deneyimleri, mini oyunlar, dil öğrenimi aktiviteleri ve ödül mekanizmalarıyla donatılmıştır. Çocukların ilgi çekici bir şekilde dünya kültürlerini tanımasına, farklı dillerden kelimeler öğrenmesine ve eğlenerek keşfetmesine olanak tanır.
 
+<div align="center">
+  <video width="640" height="360" controls>
+    <source src="Tanitim_Videosi.mp4" type="video/mp4">
+    Tarayıcınız video etiketini desteklemiyor.
+  </video>
+</div>
+
 ### 🌍 Uygulama Platformları
 
 - **Android:** 6.0 ve üzeri
