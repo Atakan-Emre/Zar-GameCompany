@@ -17,10 +17,9 @@
 Proje, zengin AR deneyimleri, mini oyunlar, dil öğrenimi aktiviteleri ve ödül mekanizmalarıyla donatılmıştır. Çocukların ilgi çekici bir şekilde dünya kültürlerini tanımasına, farklı dillerden kelimeler öğrenmesine ve eğlenerek keşfetmesine olanak tanır.
 
 <div align="center">
-  <video width="640" height="360" controls>
-    <source src="Tanitim_Videosi.mov" type="video/quicktime">
-    Tarayıcınız video etiketini desteklemiyor.
-  </video>
+  <a href="https://drive.google.com/file/d/1ZAD_S55SiIS4B2Zp3ACwsvn0NxefTH95/view?usp=sharing" target="_blank">
+    <img src="https://img.shields.io/badge/🎬_Tanıtım_Videosunu_İzle-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Tanıtım Videosunu İzle" width="300"/>
+  </a>
 </div>
 
 ### 🌍 Uygulama Platformları
