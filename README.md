@@ -18,7 +18,7 @@ Proje, zengin AR deneyimleri, mini oyunlar, dil öğrenimi aktiviteleri ve ödü
 
 <div align="center">
   <video width="640" height="360" controls>
-    <source src="Tanitim_Videosi.mp4" type="video/mp4">
+    <source src="Tanitim_Videosi.mov" type="video/quicktime">
     Tarayıcınız video etiketini desteklemiyor.
   </video>
 </div>
