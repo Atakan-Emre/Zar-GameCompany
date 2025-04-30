@@ -1,0 +1,26 @@
+# Proje Bolt Kural Listesi
+
+## Dil
+- Tüm arayüz metinleri Türkçe olmalıdır
+- API yanıtları hariç tüm hata mesajları Türkçe olmalıdır
+- Değişken isimleri İngilizce kalabilir
+
+## Kod Stili
+- React bileşenlerinde function ve export default kullanımı zorunludur
+- Her dosya kendi bileşenini export etmelidir
+- Platform kontrolü yapılırken Platform.OS kullanılmalıdır
+- AR özellikleri web platformunda çalışmayacağı için uyarı verilmelidir
+
+## Güvenlik
+- Tüm API istekleri try/catch blokları içinde yapılmalıdır
+- AR özellikleri için güvenlik kontrolleri eklenmelidir
+- setJSMaterials ve diğer AR metodları için null/undefined kontrolleri yapılmalıdır
+
+## Navigasyon
+- Ana sekme yapısı: Ana Sayfa, Öğren, Quiz, Başarılar
+- Map ve Progress sekmeleri kaldırılacaktır
+- Ana sayfadaki "Harita" butonuna tıklayınca "Öğren" sayfasına yönlendirilecektir 
+
+## Versiyon Kontrolü
+- GLB dosyaları ve modeller git'e yüklenmeyecektir
+- public/models/ klasörü .gitignore dosyasında belirtilmiştir 
