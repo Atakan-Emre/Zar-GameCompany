@@ -1,100 +1,41 @@
-# Node modules
+# dependencies
 node_modules/
 
-# Build directories
+# expo
+.expo/
 dist/
-build/
+web-build/
+expo-env.d.ts
 
-# Mac OS
+# native
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macos
 .DS_Store
+*.pem
 
-# Editor directories
-.idea/
-.vscode/
+# local env files
+.env*.local
 
-# Log files
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# typescript
+*.tsbuildinfo
 
-# Local env files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# glb files
+*.glb
+public/models/
 
-# Yapılan işlemler/yapılacaklar dokümantasyonu
-YAPILAN_ISLEMLER.md
-
-# Unity için gitignore eklentileri
-# Unity proje ve derlenmiş dosyalar
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-[Ll]ogs/
-[Uu]ser[Ss]ettings/
-
-# Unity / AR Project klasörleri tamamen hariç tutulacak
-project/source/ArProject/Library/
-project/source/ArProject/Temp/
-project/source/ArProject/Obj/
-project/source/ArProject/Build/
-project/source/ArProject/Builds/
-project/source/ArProject/Library/PackageCache/
-
-# MemoryCaptures
-[Mm]emoryCaptures/
-
-# Asset meta veri dosyaları
-*.pidb.meta
-*.pdb.meta
-*.mdb.meta
-
-# Unity3D derleme dosyaları
-*.unitypackage
-
-# Crashlytics
-crashlytics-build.properties
-
-# Visual Studio çözüm ve proje dosyaları
-*.csproj
-*.unityproj
-*.sln
-*.suo
-*.tmp
-*.user
-*.userprefs
-*.pidb
-*.booproj
-*.svd
-*.pdb
-*.mdb
-*.opendb
-*.VC.db
-
-# Unity3D generated meta files
-*.pidb.meta
-*.pdb.meta
-*.mdb.meta
-
-# Resharper
-_ReSharper*/
-*.[Rr]e[Ss]harper
-*.DotSettings.user
-
-# AR ve XR özel dosyalar
-**/[Aa]ssets/[Ss]treamingAssets/aa.meta
-**/[Aa]ssets/[Ss]treamingAssets/aa/*
-
-# Büyük dosyalar (50MB'dan büyük olanlar)
-*.dll
-*.dylib
-*.so
-*.lib
-*.a
-# ArtifactDB özellikle hariç tutulmalı
-**/ArtifactDB 
+# build
+build/

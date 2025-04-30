@@ -1,0 +1,54 @@
+{
+  "expo": {
+    "name": "Dünya Şehirleri AR",
+    "slug": "world-cities-ar",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "worldcitiesar",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Bu uygulama AR deneyimi için kameranızı kullanır.",
+        "NSPhotoLibraryUsageDescription": "Bu uygulama AR deneyimi için fotoğraf kütüphanenize erişim gerektirir.",
+        "NSMicrophoneUsageDescription": "Bu uygulama AR deneyimi için mikrofonunuzu kullanır.",
+        "UIBackgroundModes": ["audio", "location"]
+      }
+    },
+    "android": {
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ],
+      "package": "com.worldcitiesar.app"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Bu uygulama AR deneyimi için kameranızı kullanır."
+        }
+      ],
+      [
+        "@viro-community/react-viro",
+        {
+          "cameraPermission": "Bu uygulama AR deneyimi için kameranızı kullanır."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
