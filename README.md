@@ -22,6 +22,13 @@ Proje, zengin AR deneyimleri, mini oyunlar, dil öğrenimi aktiviteleri ve ödü
   </a>
 </div>
 
+<div align="center">
+  <a href="https://drive.google.com/file/d/1gmrAaDQlH1HQdkbj4m6Q8gka328mRnuS/view?usp=sharing" target="_blank">
+    <img src="https://img.shields.io/badge/🎬_Uygulama_Tanıtımını_İzle-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Uygulama Tanıtım Videosunu İzle" width="300"/>
+  </a>
+</div>
+
+
 ### 🌍 Uygulama Platformları
 
 - **Android:** 6.0 ve üzeri
