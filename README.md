@@ -173,9 +173,6 @@ Detaylı bilgi için: [Şirket Profili](docs/kurumsal/şirket-profili.md) | [Kur
 
 ### MathAR - AR Matematik Quiz Uygulaması
 
-<div align="center">
-  <img src="docs/uygulamalar/mathar.png" alt="MathAR Logo" width="150">
-</div>
 
 MathAR, artırılmış gerçeklik ile matematik öğrenmeyi eğlenceli hale getiren bir mobil uygulamadır. Uygulama, çocukların temel geometrik şekiller (kare, üçgen, daire, küre) hakkındaki matematik bilgilerini interaktif bir ortamda test etmelerini sağlar.
 
@@ -188,10 +185,6 @@ MathAR, artırılmış gerçeklik ile matematik öğrenmeyi eğlenceli hale geti
 - Çocuk dostu arayüz tasarımı
 
 ### Macera Haritası - Dünya Kültürleri AR Uygulaması
-
-<div align="center">
-  <img src="docs/uygulamalar/maceraharitasi.png" alt="Macera Haritası Logo" width="150">
-</div>
 
 Macera Haritası, çocukların dünya kültürlerini keşfetmelerini sağlayan interaktif bir AR uygulamasıdır. Expo ve React Native teknolojileri ile geliştirilmiş olup, dünya çapında kültürel öğeleri 3D modellerle sunar.
 
