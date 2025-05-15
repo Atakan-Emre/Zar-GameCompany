@@ -54,17 +54,30 @@ Proje ana dosyalarımız aşağıdaki klasör yapısında organize edilmiştir:
 
 ```
 project/
-├── source/                    # Proje kaynak kodları ve başlangıç dosyaları
-│   └── HayalHaritasi_AR_Starter.zip  # AR uygulaması başlangıç paketi
-├── apk/                       # Android uygulama paketleri
-│   └── hayalharitasi_base.apk # Temel Android uygulama paketi
-└── ios/                       # iOS uygulama dosyaları ve derleme çıktıları
+├── MathAR/                    # AR Matematik Quiz Uygulaması
+│   ├── assets/                # 3D modeller, görseller ve sesler
+│   ├── lib/                   # Dart kaynak kodları
+│   ├── android/               # Android platform kodları
+│   ├── ios/                   # iOS platform kodları
+│   ├── pubspec.yaml           # Bağımlılık yönetimi ve proje ayarları
+│   ├── KURULUM_TALIMATLARI.md # Kurulum rehberi
+│   └── README.md              # Proje açıklaması
+├── MaceraHaritasi/            # Dünya Kültürleri AR Uygulaması
+│   ├── assets/                # Medya dosyaları ve kaynaklar
+│   ├── app/                   # React Native uygulama kodu
+│   ├── components/            # Kullanıcı arayüzü bileşenleri
+│   ├── constants/             # Sabit değerler ve konfigürasyon
+│   ├── data/                  # Veri modelleri ve API işlemleri
+│   └── package.json           # NPM paket bağımlılıkları
+└── apk/                       # Android uygulama paketleri
+    ├── MaceraHaritasi.rar     # Macera Haritası uygulama paketi
+    └── MathAR.apk             # MathAR uygulama paketi
 ```
 
 Bu yapıda:
-- **source/** klasörü projenin kaynak kodlarını ve geliştirme dosyalarını içerir
+- **MathAR/** klasörü Flutter ile geliştirilmiş AR Matematik uygulamasını içerir
+- **MaceraHaritasi/** klasörü React Native ile geliştirilmiş Dünya Kültürleri AR uygulamasını içerir
 - **apk/** klasörü Android platformu için derlenmiş uygulama paketlerini barındırır
-- **ios/** klasörü ise iOS platformu için gerekli derleme dosyalarını ve çıktılarını içerir
 
 ## ⭐ Öne Çıkan Özellikler
 
@@ -95,13 +108,25 @@ Bu yapıda:
 
 ## 🔧 Teknoloji Yığını
 
-- **Oyun Motoru:** Unity 3D (2023.1 LTS)
+### MathAR Uygulaması
+- **Framework:** Flutter 3.0.0+
+- **Dil:** Dart
 - **AR Teknolojileri:** ARCore (Android), ARKit (iOS)
-- **Backend:** Firebase (Authentication, Realtime Database, Storage)
-- **3D Modelleme:** Blender, Maya
-- **UI/UX Tasarım:** Figma, Adobe XD
-- **Programlama Dilleri:** C#, JavaScript
+- **3D Modelleme:** Blender
+- **Paketler:** camera, path_provider, confetti, model_viewer_plus
+
+### Macera Haritası Uygulaması
+- **Framework:** React Native (Expo)
+- **Dil:** TypeScript
+- **AR Teknolojileri:** ViroReact
+- **3D Kütüphaneleri:** Three.js, Expo Three
+- **UI Bileşenleri:** React Native Reanimated, Linear Gradient
+
+### Genel Teknolojiler
+- **Versiyon Kontrolü:** Git
+- **Paket Yöneticileri:** npm/yarn (Macera Haritası), pub (MathAR)
 - **CI/CD:** GitHub Actions
+- **Tasarım Araçları:** Figma, Adobe XD
 
 ## 📂 Proje Yapısı
 
@@ -144,6 +169,32 @@ Dünya-Kaşifi-AR/
 
 Detaylı bilgi için: [Şirket Profili](docs/kurumsal/şirket-profili.md) | [Kurumsal Kimlik](docs/kurumsal/kurumsal-kimlik.md) | [İletişim Bilgileri](docs/kurumsal/iletişim-bilgileri.md)
 
+## 📱 Uygulamalarımız
+
+### MathAR - AR Matematik Quiz Uygulaması
+
+
+MathAR, artırılmış gerçeklik ile matematik öğrenmeyi eğlenceli hale getiren bir mobil uygulamadır. Uygulama, çocukların temel geometrik şekiller (kare, üçgen, daire, küre) hakkındaki matematik bilgilerini interaktif bir ortamda test etmelerini sağlar.
+
+**Özellikler:**
+- Artırılmış gerçeklik (AR) ile 3D geometrik şekilleri görüntüleme
+- Dört farklı şekil kategorisi: Kare, Üçgen, Daire ve Küre
+- Her kategori için çeşitli matematik soruları
+- Görsel ve sesli geri bildirimler
+- Doğru cevaplarda konfeti animasyonları
+- Çocuk dostu arayüz tasarımı
+
+### Macera Haritası - Dünya Kültürleri AR Uygulaması
+
+Macera Haritası, çocukların dünya kültürlerini keşfetmelerini sağlayan interaktif bir AR uygulamasıdır. Expo ve React Native teknolojileri ile geliştirilmiş olup, dünya çapında kültürel öğeleri 3D modellerle sunar.
+
+**Özellikler:**
+- Dünya haritası üzerinde interaktif AR deneyimi
+- Ülkelere özgü 3D kültürel yapı ve obje modelleri
+- Çok dilli ses ve metin içerikleri
+- Kültürel bilgi kartları ve mini oyunlar
+- Kişiselleştirilebilir avatar ve koleksiyon sistemi
+
 ## 👥 Ekip ve Katkıda Bulunanlar
 
 | İsim | Rol | Sorumluluklar |
@@ -153,30 +204,38 @@ Detaylı bilgi için: [Şirket Profili](docs/kurumsal/şirket-profili.md) | [Kur
 
 ## 🛠️ Kurulum ve Geliştirme
 
-### Gereksinimler
-- Unity 2023.1 LTS veya üzeri
-- Android Studio / Xcode
-- Git
-- Node.js 18+ (web geliştirmesi için)
-
-### Kurulum Adımları
-1. Depoyu klonlayın: 
+### MathAR için Kurulum
+1. Flutter SDK'yı yükleyin
+2. Proje klasörüne gidin:
 ```bash
-git clone https://github.com/Atakan-Emre/Zar-GameCompany.git
-cd Zar-GameCompany
+cd project/MathAR
+```
+3. Bağımlılıkları yükleyin:
+```bash
+flutter pub get
+```
+4. Uygulamayı çalıştırın:
+```bash
+flutter run
 ```
 
-2. Unity projesini açın:
+### Macera Haritası için Kurulum
+1. Node.js ve Expo CLI'yı yükleyin
+2. Proje klasörüne gidin:
 ```bash
-cd src
-# Unity Hub üzerinden proje klasörünü açın
+cd project/MaceraHaritasi
 ```
-
-3. Web geliştirmesi için:
+3. Bağımlılıkları yükleyin:
 ```bash
-cd web
 npm install
-npm start
+# veya
+yarn
+```
+4. Uygulamayı geliştirme modunda başlatın:
+```bash
+npm run dev
+# veya
+yarn dev
 ```
 
 ### Geliştirme İş Akışı
