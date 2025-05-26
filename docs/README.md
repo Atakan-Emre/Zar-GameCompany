@@ -1,6 +1,6 @@
 # Proje Dokümantasyonu
 
-Bu klasör, Macera Haritası AR Mobil Oyun projesiyle ilgili tüm dokümantasyonu içerir. Kurumsal bilgiler, tasarım dokümanları, teknik dokümanlar ve planlama dokümanları bu klasör altında organize edilmiştir.
+Bu klasör, Macera Haritası AR Mobil Oyun projesiyle ilgili tüm dokümantasyonu içerir. Kurumsal bilgiler, tasarım dokümanları, teknik dokümanlar ve planlama dokümanları bu klasör altında organize edilmiştir. Bu yapı, ekip üyelerinin ihtiyaç duydukları bilgilere hızlıca erişmesini sağlamak ve proje süreçlerini daha verimli hale getirmek amacıyla tasarlanmıştır.
 
 ## Klasör Yapısı
 
@@ -23,4 +23,4 @@ Bu klasör, Macera Haritası AR Mobil Oyun projesiyle ilgili tüm dokümantasyon
 ### Planlama
 - [sprint-plan.md](planlama/sprint-plan.md) - 2 haftalık 7 sprint planı
 - [backlog.md](planlama/backlog.md) - Ürün backlog'u ve sprint planlaması
-- [user-story-örnekleri.md](planlama/user-story-örnekleri.md) - Kullanıcı hikayeleri 
+- [user-story-örnekleri.md](planlama/user-story-örnekleri.md) - Kullanıcı hikayeleri
