@@ -28,6 +28,10 @@ Zar Game Company, eğitim teknolojileri alanında deneyimli iki profesyonel tara
 
 Şirketimiz, kurulduğu günden bu yana artırılmış gerçeklik teknolojilerinin eğitim alanındaki potansiyelini ortaya çıkarmak için çalışmaktadır. İlk projemiz olan "Macera Haritası", çocukların dünya coğrafyası, farklı kültürler ve diller hakkında eğlenceli bir şekilde öğrenmelerini sağlayan bir AR mobil uygulamasıdır.
 
+## Proje Başarıları
+
+"Macera Haritası" projemiz, 26 Mayıs 2025 tarihinde başarıyla tamamlanmış ve hedeflenen tüm özellikler başarıyla hayata geçirilmiştir. Bu proje, şirketimizin vizyonunu ve değerlerini yansıtan önemli bir kilometre taşı olmuştur.
+
 ## Ekibimiz
 
 Zar Game Company, eğitim ve teknoloji alanında uzmanlaşmış iki ana kurucu üzerine kurulmuştur:
@@ -40,4 +44,4 @@ Zar Game Company, eğitim ve teknoloji alanında uzmanlaşmış iki ana kurucu �
 ### Züleyha Kezer - Scrum Master ve Oyun Tasarımı
 - Proje yönetimi ve Scrum metodolojisi konusunda uzman
 - Eğitim içeriği ve oyun tasarımı
-- Kullanıcı deneyimi ve arayüz tasarımı 
+- Kullanıcı deneyimi ve arayüz tasarımı
