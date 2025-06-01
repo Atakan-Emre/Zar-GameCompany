@@ -197,6 +197,92 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 1500);
         }, 1000);
     }
+
+    // Galeri Modal İşlevselliği
+    const galleryModalHTML = `
+        <div class="gallery-modal" id="gallery-modal">
+            <div class="gallery-modal-content">
+                <span class="gallery-modal-close">&times;</span>
+                <img src="" alt="" id="gallery-modal-img">
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', galleryModalHTML);
+    
+    const galleryModal = document.getElementById('gallery-modal');
+    const galleryModalImg = document.getElementById('gallery-modal-img');
+    const galleryModalClose = document.querySelector('.gallery-modal-close');
+    
+    // Galeri öğelerine tıklama olayları ekle
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const imgSrc = this.getAttribute('data-image');
+            const imgAlt = this.querySelector('img').getAttribute('alt');
+            
+            galleryModalImg.src = imgSrc;
+            galleryModalImg.alt = imgAlt;
+            galleryModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Büyütme butonuna tıklama
+        const viewFullsizeBtn = item.querySelector('.view-fullsize');
+        if (viewFullsizeBtn) {
+            viewFullsizeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const imgSrc = item.getAttribute('data-image');
+                const imgAlt = item.querySelector('img').getAttribute('alt');
+                
+                galleryModalImg.src = imgSrc;
+                galleryModalImg.alt = imgAlt;
+                galleryModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+    });
+    
+    // Modal kapatma olayları
+    galleryModalClose.addEventListener('click', closeGalleryModal);
+    
+    galleryModal.addEventListener('click', function(e) {
+        if (e.target === galleryModal) {
+            closeGalleryModal();
+        }
+    });
+    
+    // ESC tuşu ile modal kapatma
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && galleryModal.classList.contains('active')) {
+            closeGalleryModal();
+        }
+    });
+    
+    function closeGalleryModal() {
+        galleryModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Galeri animasyonları
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const galleryObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = `fadeInUp 0.6s ease forwards ${entry.target.dataset.delay || 0}s`;
+            }
+        });
+    }, observerOptions);
+    
+    // Galeri öğelerine gözlemci ekle ve gecikme ayarla
+    document.querySelectorAll('.gallery-item').forEach((item, index) => {
+        item.dataset.delay = index * 0.1;
+        item.style.opacity = '0';
+        galleryObserver.observe(item);
+    });
 });
 
 // Element görünür mü kontrolü
@@ -520,90 +606,62 @@ function updateModalHeader() {
 
 // Markdown dokümanını yükler ve geri butonu işlevselliğini sağlar
 function loadMarkdownDocWithBackButton(filePath, title) {
-    const modalContent = document.querySelector('.modal-content');
-    const modalHeader = document.querySelector('.modal-header h2');
-    const backButton = document.querySelector('.modal-back');
-    
-    if (!modalContent || !modalHeader) {
-        console.error("Modal elementleri bulunamadı");
+    if (!marked || typeof marked.parse !== 'function') {
+        console.error('Marked kütüphanesi düzgün yüklenmedi');
         return;
     }
-    
-    // Geri butonunu göster
-    if (backButton) {
-        backButton.style.display = 'block';
-    }
-    
-    // Modal başlığını güncelle
-    modalHeader.textContent = title;
-    
-    // Yükleniyor mesajı göster
-    modalContent.innerHTML = `
-        <div class="loading-spinner">
-            <div class="spinner"></div>
-            <div class="loading-text">Doküman yükleniyor...</div>
-        </div>
-    `;
-    
-    // Dosya yoluna göre local dosya kullan
+
     fetch(filePath)
         .then(response => {
             if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+                throw new Error(`Doküman yüklenemedi: ${response.status}`);
             }
             return response.text();
         })
         .then(markdown => {
-            // Marked.js ile markdown'ı HTML'e dönüştür
             const html = marked.parse(markdown);
             
-            // Modal içeriğini güncelle ve kategorilere dön butonu ekle
+            const modalContent = document.querySelector('.modal-content');
             modalContent.innerHTML = `
-                <div class="markdown-content">${html}</div>
-                <div class="back-to-category" style="margin-top: 20px; text-align: center;">
-                    <button class="btn-back" style="background-color: #5E35B1; color: white; padding: 8px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;">
-                        <i class="fas fa-arrow-left"></i> Kategorilere Dön
+                <div class="modal-header">
+                    <button class="btn secondary-btn" onclick="showPlanningDocs()" style="margin-right: 10px;">
+                        <i class="fas fa-arrow-left"></i> Geri
                     </button>
+                    <h2>${title}</h2>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="markdown-content">
+                    ${html}
                 </div>
             `;
             
-            // Kategorilere dön butonuna tıklama olayı ekle
-            const contentBackBtn = modalContent.querySelector('.btn-back');
-            if (contentBackBtn) {
-                contentBackBtn.addEventListener('click', showPlanningDocs);
-            }
+            // Modal kapatma ve geri butonu için event listeners
+            document.querySelector('.modal-close').addEventListener('click', closeModal);
             
-            // İçeriğin tamamını görüntülemek için modalı kaydır
-            modalContent.scrollTop = 0;
-            
-            // Kod blokları için syntax highlighting
-            if (window.hljs) {
-                document.querySelectorAll('.markdown-content pre code').forEach((block) => {
-                    hljs.highlightBlock(block);
+            // Highlight.js ile kod vurgulama
+            if (typeof hljs !== 'undefined') {
+                document.querySelectorAll('pre code').forEach((block) => {
+                    hljs.highlightElement(block);
                 });
             }
         })
         .catch(error => {
-            console.error('Markdown dosyası yüklenemedi:', error);
+            console.error('Markdown doküman yüklenirken hata:', error);
+            const modalContent = document.querySelector('.modal-content');
             modalContent.innerHTML = `
-                <div class="not-found">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <h3>Doküman Bulunamadı</h3>
-                    <p>İstenen dosya yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</p>
-                    <p class="error-details">${error.message}</p>
-                    <div class="back-to-category" style="margin-top: 20px; text-align: center;">
-                        <button class="btn-back" style="background-color: #5E35B1; color: white; padding: 8px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;">
-                            <i class="fas fa-arrow-left"></i> Kategorilere Dön
-                        </button>
-                    </div>
+                <div class="modal-header">
+                    <button class="btn secondary-btn" onclick="showPlanningDocs()" style="margin-right: 10px;">
+                        <i class="fas fa-arrow-left"></i> Geri
+                    </button>
+                    <h2>Hata</h2>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="error-message">
+                    <h3>Doküman yüklenemedi</h3>
+                    <p>Üzgünüz, belge yüklenirken bir hata oluştu: ${error.message}</p>
                 </div>
             `;
-            
-            // Hata durumunda da geri butonuna olay dinleyicisi ekle
-            const errorBackBtn = modalContent.querySelector('.btn-back');
-            if (errorBackBtn) {
-                errorBackBtn.addEventListener('click', showPlanningDocs);
-            }
+            document.querySelector('.modal-close').addEventListener('click', closeModal);
         });
 }
 
@@ -635,4 +693,36 @@ let documentHeader = `
         <img src="docs/kurumsal/logo.png" class="doc-logo" alt="Logo">
         <h1>Macera Haritası - Doküman</h1>
     </div>
-`; 
+`;
+
+// Ana sayfa linkini güncelleyerek galeri bölümünü dahil et
+document.addEventListener('DOMContentLoaded', function() {
+    const navMenu = document.querySelector('.nav-menu');
+    if (navMenu && !document.querySelector('a[href="#app-gallery"]')) {
+        const aboutLink = document.querySelector('a[href="#about"]').parentElement;
+        const galleryLink = document.createElement('li');
+        galleryLink.innerHTML = '<a href="#app-gallery"><i class="fas fa-images"></i> Galeri</a>';
+        
+        // About linkinden sonra ekle
+        aboutLink.insertAdjacentElement('afterend', galleryLink);
+    }
+    
+    // Navbar smooth scroll güncellemesi
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                window.scrollTo({
+                    top: targetElement.offsetTop - headerHeight - 20,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}); 
