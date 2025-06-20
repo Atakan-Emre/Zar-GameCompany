@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathAR - Zar Game Company</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/notification.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="description" content="MathAR, Zar Game Company tarafından geliştirilen AR teknolojisiyle matematik öğretimi yapan eğitici mobil oyun">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h1 style="color: #2196F3;">MathAR</h1>
+                    <p class="tagline">AR ile Matematik Öğrenme</p>
+                </a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> Hakkında</a></li>
+                    <li><a href="#app-gallery"><i class="fas fa-images"></i> Galeri</a></li>
+                    <li><a href="#features"><i class="fas fa-star"></i> Özellikler</a></li>
+                    <li><a href="#team"><i class="fas fa-users"></i> Ekip</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" style="background: linear-gradient(135deg, #2196F3, #1976D2);">
+        <div class="container">
+            <h2>Matematik <span class="highlight" style="color: #FFC107;">Artık Daha Eğlenceli!</span></h2>
+            <p>AR teknolojisiyle matematik kavramlarını görselleştiren, interaktif öğrenme deneyimi sunan yenilikçi eğitim platformu.</p>
+                         <div class="cta-group">
+                <a href="#app-gallery" class="btn" style="background: #4CAF50; color: white;"><i class="fas fa-check-circle"></i> Proje Tamamlandı!</a>
+                <a href="#app-gallery" class="btn secondary-btn"><i class="fas fa-images"></i> Görselleri İncele</a>
+            </div>
+        </div>
+        <!-- Matematik sembolleri animasyonu -->
+        <div class="hero-stars">
+            <div class="math-symbol">+</div>
+            <div class="math-symbol">-</div>
+            <div class="math-symbol">×</div>
+            <div class="math-symbol">÷</div>
+            <div class="math-symbol">=</div>
+            <div class="math-symbol">π</div>
+            <div class="math-symbol">∞</div>
+            <div class="math-symbol">√</div>
+            <div class="math-symbol">²</div>
+            <div class="math-symbol">³</div>
+            <div class="math-symbol">∑</div>
+            <div class="math-symbol">∆</div>
+        </div>
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title" style="color: #2196F3;">MathAR Hakkında</h2>
+            <div class="about-grid">
+                <div class="about-content">
+                    <p><strong>MathAR</strong>, <strong>Zar Game Company</strong> tarafından geliştirilen ve çocukların matematik öğrenme sürecini AR (Artırılmış Gerçeklik) teknolojisiyle destekleyen yenilikçi bir eğitim platformudur.</p>
+                    <p>Geleneksel matematik öğretim yöntemlerini AR ile birleştirerek, soyut matematiksel kavramları 3D görsel modeller halinde sunuyoruz. Bu sayede öğrenciler sayıları, geometrik şekilleri ve matematiksel işlemleri fiziksel dünyada görerek öğrenebiliyorlar.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag" style="background: linear-gradient(135deg, #2196F3, #1976D2); color: white;"><i class="fas fa-vr-cardboard"></i> AR Teknolojisi</span>
+                        <span class="tech-tag" style="background: linear-gradient(135deg, #4CAF50, #388E3C); color: white;"><i class="fab fa-unity"></i> Unity 3D</span>
+                        <span class="tech-tag" style="background: linear-gradient(135deg, #FF9800, #F57C00); color: white;"><i class="fas fa-brain"></i> Machine Learning</span>
+                        <span class="tech-tag" style="background: linear-gradient(135deg, #9C27B0, #7B1FA2); color: white;"><i class="fas fa-chart-line"></i> Analytics</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-container">
+                        <div class="math-visualization">
+                            <div class="floating-numbers">
+                                <span>123</span>
+                                <span>456</span>
+                                <span>789</span>
+                            </div>
+                            <div class="geometric-shapes">
+                                <div class="cube"></div>
+                                <div class="pyramid"></div>
+                                <div class="sphere"></div>
+                            </div>
+                        </div>
+                        <div class="ar-badge" style="background: linear-gradient(135deg, #2196F3, #1976D2);">
+                            <i class="fas fa-calculator"></i> AR Matematik
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MathAR Uygulama Görselleri Galeri Bölümü -->
+    <section id="app-gallery" class="section">
+        <div class="container">
+            <h2 class="section-title" style="color: #2196F3;">MathAR Uygulama Görselleri</h2>
+            <p class="section-description">MathAR AR matematik uygulamasından ekran görüntüleri ve mockup tasarımları</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-image="project/MathARMockup/MathAR-1.jpg">
+                    <img src="project/MathARMockup/MathAR-1.jpg" alt="MathAR Ana Menü" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Ana Menü</h3>
+                        <p>MathAR ana menü tasarımı</p>
+                        <button class="view-fullsize"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-image="project/MathARMockup/MathAR-2.jpg">
+                    <img src="project/MathARMockup/MathAR-2.jpg" alt="AR Geometrik Şekiller" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>3D Geometri</h3>
+                        <p>AR ile 3D geometrik şekil görüntüleme</p>
+                        <button class="view-fullsize"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-image="project/MathARMockup/MathAR-3.jpg">
+                    <img src="project/MathARMockup/MathAR-3.jpg" alt="AR Hesap Makinesi" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>AR Hesap Makinesi</h3>
+                        <p>Havada yazılan sayıları tanıyan AR sistem</p>
+                        <button class="view-fullsize"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-image="project/MathARMockup/MathAR-4.jpg">
+                    <img src="project/MathARMockup/MathAR-4.jpg" alt="İnteraktif Grafikler" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Matematik Grafikleri</h3>
+                        <p>3D fonksiyon grafikleri ve analiz</p>
+                        <button class="view-fullsize"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-image="project/MathARMockup/MathAR-5.jpg">
+                    <img src="project/MathARMockup/MathAR-5.jpg" alt="Matematik Oyunları" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Eğitici Oyunlar</h3>
+                        <p>Seviyeli matematik mini oyunları</p>
+                        <button class="view-fullsize"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-image="project/MathARMockup/MathAR-6.jpg">
+                    <img src="project/MathARMockup/MathAR-6.jpg" alt="İlerleme Takibi" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>İlerleme Analizi</h3>
+                        <p>Öğrenme ilerlemesi ve başarım sistemi</p>
+                        <button class="view-fullsize"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-image="project/MathARMockup/MathAR-7.jpg">
+                    <img src="project/MathARMockup/MathAR-7.jpg" alt="Ödül Sistemi" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3>Ödül ve Rozetler</h3>
+                        <p>Motivasyon artırıcı başarım sistemi</p>
+                        <button class="view-fullsize"><i class="fas fa-expand"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section" style="background: linear-gradient(135deg, #E3F2FD, #BBDEFB);">
+        <div class="container">
+            <h2 class="section-title" style="color: #1976D2;">MathAR Özellikleri</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #2196F3, #1976D2);">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>3D Geometrik Modeller</h3>
+                        <p>Küp, küre, piramit gibi geometrik şekilleri AR ile gerçek ortamda görüntüleyin ve manipüle edin.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #4CAF50, #388E3C);">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>AR Hesap Makinesi</h3>
+                        <p>Havada yazılan sayıları tanıyan ve işlem sonuçlarını görsel olarak gösteren AR hesap makinesi.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #FF9800, #F57C00);">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>İnteraktif Grafikler</h3>
+                        <p>Fonksiyon grafikleri, pasta dilimleri ve çubuk grafiklerini 3D olarak keşfedin.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #9C27B0, #7B1FA2);">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Eğitici Oyunlar</h3>
+                        <p>Matematik becerilerini geliştiren, seviyeli mini oyunlar ve challenge'lar.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #F44336, #D32F2F);">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Ödül Sistemi</h3>
+                        <p>Başarıları takip eden, motivasyonu artıran rozet ve başarım sistemi.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #607D8B, #455A64);">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>İlerleme Analizi</h3>
+                        <p>Öğrenme ilerlemesini takip eden detaylı analiz ve raporlama sistemi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="team" class="section">
+        <div class="container">
+            <h2 class="section-title">Geliştirme Ekibi</h2>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="assets/team/dev-avatar.svg" alt="Şahin Atakan Emre">
+                    </div>
+                    <h3>Şahin Atakan Emre</h3>
+                    <div class="member-role">Kodlama ve Yapısal Tasarım</div>
+                    <p class="member-desc">AR teknolojileri ve eğitim içeriği konusunda uzman. Macera Haritası'nın teknik altyapısından ve AR deneyimlerinden sorumlu.</p>
+                    <div class="member-profile-links">
+                        <a href="https://github.com/Atakan-Emre" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/atakan-emre/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="assets/team/designer-avatar.svg" alt="Züleyha Kezer">
+                    </div>
+                    <h3>Züleyha Kezer</h3>
+                    <div class="member-role">Scrum Master ve Oyun Tasarımı</div>
+                    <p class="member-desc">Çocuk gelişimi ve eğitim içeriği alanında uzman. Macera Haritası'nın eğitici içeriklerinin tasarımından ve STEAM yaklaşımından sorumlu.</p>
+                    <div class="member-profile-links">
+                        <a href="https://github.com/zuleyhakezerr" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/z%C3%BCleyha-kezer-b38534297/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-stars"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="docs/kurumsal/logo.png" alt="Zar Game Company Logo" class="footer-logo-img">
+                    <h2>Zar Game Company</h2>
+                    <p>MathAR AR projesiyle matematik öğrenmeyi eğlenceli hale getiriyoruz</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://twitter.com/zargamecompany" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/zargamecompany" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/company/zar-game-company" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Atakan-Emre/Zar-GameCompany" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Zar Game Company. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Yukarı çıkma butonu -->
+    <div class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Ana JavaScript dosyaları -->
+    <script src="js/main.js"></script>
+    
+    <style>
+    /* MathAR'a özel stiller */
+    .math-symbol {
+        position: absolute;
+        font-size: 2rem;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 0.3);
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    .math-symbol:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+    .math-symbol:nth-child(2) { top: 20%; left: 80%; animation-delay: 0.5s; }
+    .math-symbol:nth-child(3) { top: 30%; left: 10%; animation-delay: 1s; }
+    .math-symbol:nth-child(4) { top: 40%; left: 85%; animation-delay: 1.5s; }
+    .math-symbol:nth-child(5) { top: 50%; left: 20%; animation-delay: 2s; }
+    .math-symbol:nth-child(6) { top: 60%; left: 75%; animation-delay: 2.5s; }
+    .math-symbol:nth-child(7) { top: 70%; left: 15%; animation-delay: 3s; }
+    .math-symbol:nth-child(8) { top: 80%; left: 80%; animation-delay: 0.2s; }
+    .math-symbol:nth-child(9) { top: 25%; left: 45%; animation-delay: 0.8s; }
+    .math-symbol:nth-child(10) { top: 55%; left: 50%; animation-delay: 1.2s; }
+    .math-symbol:nth-child(11) { top: 15%; left: 60%; animation-delay: 1.8s; }
+    .math-symbol:nth-child(12) { top: 75%; left: 40%; animation-delay: 2.2s; }
+    
+    .math-visualization {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+    .floating-numbers span {
+        position: absolute;
+        font-size: 3rem;
+        font-weight: bold;
+        color: #2196F3;
+        animation: numberFloat 4s ease-in-out infinite;
+    }
+    
+    .floating-numbers span:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+    .floating-numbers span:nth-child(2) { top: 50%; right: 20%; animation-delay: 1s; }
+    .floating-numbers span:nth-child(3) { bottom: 20%; left: 50%; animation-delay: 2s; }
+    
+    @keyframes numberFloat {
+        0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+        50% { transform: translateY(-20px) rotate(5deg); opacity: 1; }
+    }
+    
+    .geometric-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .cube, .pyramid, .sphere {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #FF9800, #F57C00);
+        animation: shapeRotate 6s linear infinite;
+    }
+    
+    .cube {
+        top: 30%;
+        left: 60%;
+        border-radius: 5px;
+        animation-delay: 0s;
+    }
+    
+    .pyramid {
+        top: 60%;
+        left: 30%;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        background: linear-gradient(135deg, #4CAF50, #388E3C);
+        animation-delay: 2s;
+    }
+    
+    .sphere {
+        top: 70%;
+        right: 30%;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+        animation-delay: 4s;
+    }
+    
+    @keyframes shapeRotate {
+        0% { transform: rotate(0deg) scale(1); }
+        50% { transform: rotate(180deg) scale(1.2); }
+        100% { transform: rotate(360deg) scale(1); }
+    }
+    
+    /* Geliştirme durumu stilleri */
+    .development-status {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .status-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .status-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #FF9800, #F57C00);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 25px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+    
+    .status-badge i {
+        margin-right: 10px;
+    }
+    
+    .progress-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+    
+    .progress-item {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .progress-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .progress-header h4 {
+        margin: 0;
+        color: #333;
+        font-size: 1.1rem;
+    }
+    
+    .progress-percentage {
+        font-weight: bold;
+        color: #2196F3;
+        font-size: 1.2rem;
+    }
+    
+    .progress-bar {
+        width: 100%;
+        height: 10px;
+        background: #f0f0f0;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
+    
+    .progress-fill {
+        height: 100%;
+        border-radius: 5px;
+        transition: width 0.3s ease;
+    }
+    
+    .timeline-preview h3 {
+        color: #333;
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    
+    .timeline-items {
+        position: relative;
+    }
+    
+    .timeline-items::before {
+        content: '';
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #e0e0e0;
+    }
+    
+    .timeline-item {
+        position: relative;
+        padding-left: 60px;
+        margin-bottom: 30px;
+    }
+    
+    .timeline-marker {
+        position: absolute;
+        left: 11px;
+        top: 0;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #e0e0e0;
+        border: 3px solid white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .timeline-item.completed .timeline-marker {
+        background: #4CAF50;
+    }
+    
+    .timeline-item.active .timeline-marker {
+        background: #2196F3;
+        animation: pulse 2s infinite;
+    }
+    
+    .timeline-content h4 {
+        margin: 0 0 10px 0;
+        color: #333;
+        font-size: 1.1rem;
+    }
+    
+    .timeline-content p {
+        margin: 0;
+        color: #666;
+        font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+        .progress-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .math-visualization {
+            width: 250px;
+            height: 250px;
+        }
+        
+        .floating-numbers span {
+            font-size: 2rem;
+        }
+    }
+    </style>
+</body>
+</html> 

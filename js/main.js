@@ -695,19 +695,10 @@ let documentHeader = `
     </div>
 `;
 
-// Ana sayfa linkini güncelleyerek galeri bölümünü dahil et
+// Ana sayfa navigation - galeri butonu kaldırıldı
+
+// Navbar smooth scroll güncellemesi  
 document.addEventListener('DOMContentLoaded', function() {
-    const navMenu = document.querySelector('.nav-menu');
-    if (navMenu && !document.querySelector('a[href="#app-gallery"]')) {
-        const aboutLink = document.querySelector('a[href="#about"]').parentElement;
-        const galleryLink = document.createElement('li');
-        galleryLink.innerHTML = '<a href="#app-gallery"><i class="fas fa-images"></i> Galeri</a>';
-        
-        // About linkinden sonra ekle
-        aboutLink.insertAdjacentElement('afterend', galleryLink);
-    }
-    
-    // Navbar smooth scroll güncellemesi
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -725,4 +716,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-}); 
+});
