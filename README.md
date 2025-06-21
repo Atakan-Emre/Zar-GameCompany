@@ -87,7 +87,6 @@
 **🏆 Motivasyon Sistemi:**
 - **Kaşif Pasaportu:** Ziyaret edilen ülkelerin damga koleksiyonu
 - **Rozet Sistemi:** Farklı başarılar için kazanılan özel rozetler
-- **Avatar Kişiselleştirme:** Kullanıcıya özel kaşif karakteri oluşturma
 
 **👨‍👩‍👧‍👦 Güvenlik & Ebeveyn Kontrolü:**
 - **Oturum Süresi Yönetimi:** Yaş grubuna uygun kullanım süreleri
@@ -139,25 +138,6 @@
 - **AR Teknolojisi:** ARCore (Android), ARKit (iOS)
 - **3D Modelleme:** Blender entegrasyonu
 - **AI Teknolojisi:** Makine öğrenmesi ile kişiselleştirilmiş öğrenme
-
-## 🎬 Video Galerisi
-
-<div align="center">
-  <table>
-    <tr>
-      <td align="center">
-        <a href="https://drive.google.com/file/d/1ZAD_S55SiIS4B2Zp3ACwsvn0NxefTH95/view?usp=sharing" target="_blank">
-          <img src="https://img.shields.io/badge/🎬_Şirket_Tanıtım_Videosu-4CAF50?style=for-the-badge&logo=google-drive&logoColor=white" alt="Şirket Tanıtımı" width="280"/>
-        </a>
-      </td>
-      <td align="center">
-        <a href="https://drive.google.com/file/d/1JOqQm7RZXItDOsMfwDLcwmWKDZKAPF2F/view?usp=sharing" target="_blank">
-          <img src="https://img.shields.io/badge/🎬_Proje_Sunum_Videosu-9C27B0?style=for-the-badge&logo=google-drive&logoColor=white" alt="Proje Sunumu" width="280"/>
-        </a>
-      </td>
-    </tr>
-  </table>
-</div>
 
 ## 📦 Proje Dosya Yapısı
 
