@@ -21,7 +21,7 @@
         </a>
       </td>
       <td align="center">
-        <a href="https://drive.google.com/file/d/1JOqQm7RZXItDOsMfwDLcwmWKDZKAPF2F/view?usp=sharing" target="_blank">
+        <a href="https://youtu.be/B2puocQDJwE" target="_blank">
           <img src="https://img.shields.io/badge/🎬_Proje_Sunum_Videosu-9C27B0?style=for-the-badge&logo=google-drive&logoColor=white" alt="Proje Sunumu" width="280"/>
         </a>
       </td>
